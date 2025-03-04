@@ -1,12 +1,13 @@
-<div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 px-6">
+<div class="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8 px-6"
+     style="background-image: url('assets/images/2021-1.jpg'); background-size: cover; background-position: center;">
   <div class="sm:mx-auto sm:w-full sm:max-w-md">
     <!-- Logo Icon -->
     <img src="assets/images/Logo.png" class="mx-auto h-20  w-auto" alt="Logo " height="424" width="2000">
 
-    <h2 class="mt-6 text-center text-3xl leading-9 font-bold text-gray-900">
-      Log in to your account
+    <h2 class="mt-6 text-center text-3xl leading-9 font-bold text-white">
+     Sign In
     </h2>
-    <p class="mt-2 text-center text-sm leading-5 text-gray-500 max-w">
+    <p class="mt-2 text-center text-sm leading-5 text-white max-w">
       Or
       <a routerLink="/register"
          class="font-medium text-red-500 hover:text-red-500 focus:outline-none focus:underline transition ease-in-out duration-150">
@@ -17,10 +18,10 @@
 
 
   <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+    <div class="bg-white/40 backdrop-blur-md  py-8 px-4 shadow sm:rounded-lg sm:px-10">
       <form (ngSubmit)="login()">
         <div>
-          <label for="email" class="block text-sm font-medium leading-5  text-gray-700">Email </label>
+          <label for="email" class="block text-sm font-medium leading-5  text-white">Email </label>
           <div class="mt-1 relative rounded-md shadow-sm">
             <input id="email" type="email" [(ngModel)]="email" name="email" required
                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-red focus:border-red-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
@@ -35,7 +36,7 @@
         </div>
 
         <div class="mt-6">
-          <label for="password" class="block text-sm font-medium leading-5 text-gray-700">Password</label>
+          <label for="password" class="block text-sm font-medium leading-5 text-white">Password</label>
           <div class="mt-1 rounded-md shadow-sm">
             <input id="password" type="password" [(ngModel)]="password" name="password"
                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-red focus:border-red-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
