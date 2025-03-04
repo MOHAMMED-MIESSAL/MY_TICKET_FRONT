@@ -1,112 +1,125 @@
-<header>
-  <!-- Hero Container -->
-  <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-20">
-    <!-- Component -->
-    <div class="grid items-center justify-items-start gap-8 sm:gap-16 md:grid-cols-2">
+<div class="relative h-screen w-full">
+
+  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+       [style.background-image]="'url( assets/images/téléchargement.jpeg )'">
+
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+  </div>
 
 
-      <!--
-        <img
-          src="assets/images/hero2.jpg"
-          alt="" class="inline-block h-full w-full max-w-2xl"/>
+  <div class="relative h-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-end">
+    <div class="pb-20 md:pb-24 lg:pb-28 w-full md:max-w-2xl lg:max-w-3xl">
+      <div class="hero-content">
+        <div class="inline-block mb-6">
+              <span class="px-4 py-2 rounded-md bg-red-600 text-white text-sm font-bold tracking-wider">
+                ACTUALITÉ PRINCIPALE
+              </span>
+        </div>
 
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+          Les innovations technologiques qui redéfinissent notre futur
+        </h1>
 
-        <div class="flex flex-col">
+        <p class="text-gray-200 text-lg mb-8 max-w-2xl">
+          Découvrez comment les avancées récentes transforment notre façon de vivre, travailler et interagir avec le
+          monde qui nous entoure.
+        </p>
 
-          <h1 class="mb-4 text-4xl font-bold md:text-6xl md:leading-tight">
-            The Website You Want Without The Dev Time.
-          </h1>
-          <p class="mb-6 max-w-lg text-sm text-gray-500 sm:text-xl md:mb-10 lg:mb-12">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
-            aliquam, purus sit amet luctus venenatis, lectus
-          </p>
+        <div
+          class="flex flex-col sm:flex-row items-start sm:items-center text-white space-y-4 sm:space-y-0 sm:space-x-6">
+          <div class="flex items-center">
+            <img
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
+              alt="Photo auteur"
+              class="w-10 h-10 rounded-full border-2 border-white mr-3"
+            />
+            <div>
+              <p class="font-medium">Laila Bahar</p>
+              <p class="text-sm text-gray-300">Rédactrice en chef</p>
+            </div>
+          </div>
 
           <div class="flex items-center">
-            <a href="javascript:void(0);"
-               class="mr-5 items-center rounded-md bg-black px-6 py-3 font-semibold text-white md:mr-6 lg:mr-8">
-              Let's Talk
-            </a>
-            <a href="javascript:void(0);" class="flex max-w-full items-center font-bold">
-              <img
-                src="https://assets.website-files.com/6458c625291a94a195e6cf3a/6458c625291a94bd85e6cf98_ArrowUpRight%20(4).svg"
-                alt="" class="mr-2 inline-block max-h-4 w-5"/>
-              <p>View Showreel</p>
-            </a>
+
+            <span>6 mins de lecture</span>
+          </div>
+
+          <div class="flex items-center">
+
+            <span>12 Mars 2025</span>
           </div>
         </div>
 
-      -->
-
-
-      <!-- Image de fond qui prend toute la largeur -->
-      <div class="absolute inset-0">
-        <img ngSrc="assets/images/téléchargement.jpeg" alt="Image principale" class="w-full h-full object-cover "
-             height="1080" width="1920"/>
-        <div class="absolute inset-0 hero-overlay"></div>
-      </div>
-
-      <!-- Contenu centré avec largeur maximale -->
-      <div class="relative h-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-end">
-        <div class="hero-wrapper pb-20 md:pb-24 lg:pb-28 w-full md:max-w-2xl lg:max-w-3xl">
-          <div class="hero-content">
-            <!-- Badge de catégorie -->
-            <div class="inline-block mb-6">
-          <span class="px-4 py-2 rounded-md bg-red-600 text-white text-sm font-bold tracking-wider category-badge">
-            ACTUALITÉ PRINCIPALE
-          </span>
-            </div>
-
-            <!-- Titre principal -->
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Les innovations technologiques qui redéfinissent notre futur
-            </h1>
-
-            <!-- Description -->
-            <p class="text-gray-200 text-lg mb-8 max-w-2xl">
-              Découvrez comment les avancées récentes transforment notre façon de vivre, travailler et interagir avec le
-              monde qui nous entoure.
-            </p>
-
-            <!-- Informations sur l'auteur et la lecture -->
-            <div class="flex items-center text-white space-x-6">
-              <div class="flex items-center">
-                <img src="assets/images/2021-1.jpg" alt="Photo auteur"
-                     class="w-10 h-10 rounded-full border-2 border-white mr-3"/>
-                <div>
-                  <p class="font-medium">Laila Bahar</p>
-                  <p class="text-sm text-gray-300">Rédactrice en chef</p>
-                </div>
-              </div>
-
-              <div class="flex items-center">
-                <i class="far fa-clock mr-2"></i>
-                <span>6 mins de lecture</span>
-              </div>
-
-              <div class="flex items-center">
-                <i class="far fa-calendar-alt mr-2"></i>
-                <span>12 Mars 2025</span>
-              </div>
-            </div>
-
-            <!-- Bouton de lecture -->
-            <div class="mt-8">
-              <a href="javascript:void(0);"
-                 class="inline-flex items-center px-6 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-black transition-colors duration-300">
-                Lire l'article complet
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd"
-                        d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                        clip-rule="evenodd"/>
-                </svg>
-              </a>
-            </div>
-          </div>
+        <div class="mt-8">
+          <a
+            href="#"
+            class="inline-flex items-center px-6 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-black transition-colors duration-300"
+          >
+            Lire l'article complet
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd"
+                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+              />
+            </svg>
+          </a>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+
+<header>
+  <!-- Container -->
+  <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-20">
+    <div class="mx-auto max-w-3xl text-center">
+      <!-- Title -->
+      <h1 class="mb-4 text-4xl font-bold md:text-6xl">
+        The Fast, Reliable and Secure Payment Platform
+      </h1>
+      <p class="mb-6 text-sm text-gray-500 sm:text-xl lg:mb-8">
+        Say goodbye to payment headaches with SecurePay! Our easy-to-use
+        payment platform makes it simple for businesses and individuals to
+        send and receive payments quickly and securely.
+      </p>
+      <!-- Button -->
+      <a href="javascript:void(0);"
+         class="mr-6 inline-block items-center rounded-md bg-black px-8 py-4 text-center font-semibold text-white lg:mr-8">
+        Open Account
+      </a>
+    </div>
+    <!-- List -->
+    <ul class="mt-16 grid gap-8 sm:mt-24 sm:grid-cols-3 sm:gap-12 md:grid-cols-5 md:gap-4">
+      <li class="flex items-center justify-center">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/flowspark-1f3e0.appspot.com/o/Tailspark%20Images%2FMicrosoft%20Logo.svg?alt=media&token=d9a0206b-8dfa-407e-af77-5c5d33abfbb3"
+          alt="" class="inline-block h-9"/>
+      </li>
+      <li class="flex justify-center">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/flowspark-1f3e0.appspot.com/o/Tailspark%20Images%2FPayPal%20Logo.svg?alt=media&token=73b2c12b-b86c-4e6c-8158-ea096d5bacb5"
+          alt="" class="inline-block h-9"/>
+      </li>
+      <li class="flex justify-center">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/flowspark-1f3e0.appspot.com/o/Tailspark%20Images%2FGroup.svg?alt=media&token=a908887b-af31-4e54-997a-d5e4dc3be56a"
+          alt="" class="inline-block h-9"/>
+      </li>
+      <li class="flex justify-center">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/flowspark-1f3e0.appspot.com/o/Tailspark%20Images%2FChase%20Logo.svg?alt=media&token=f179fc6d-e765-4969-8966-62ff6ec35e8f"
+          alt="" class="inline-block h-9"/>
+      </li>
+      <li class="flex justify-center">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/flowspark-1f3e0.appspot.com/o/Tailspark%20Images%2FWalmart%20Logo.svg?alt=media&token=614d63e8-5961-4c97-8dc5-cf69669c3848"
+          alt="" class="inline-block h-9"/>
+      </li>
+    </ul>
+  </div>
 </header>
+
 
 
 

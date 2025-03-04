@@ -1,19 +1,20 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../services/auth.service';
 import {RouterLink} from "@angular/router";
-import {NgIf, NgOptimizedImage} from "@angular/common";
+import {NgIf} from "@angular/common";
 import {Router} from "@angular/router";
 
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, NgIf, RouterLink, NgIf, NgOptimizedImage],
+  imports: [RouterLink, NgIf, RouterLink, NgIf],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
-  isLoggedIn: boolean = false;
+  isMobileMenuOpen = false;
+  isLoggedIn = false;
 
   constructor(private authService: AuthService, private router: Router) {
   }
@@ -29,5 +30,9 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 }
