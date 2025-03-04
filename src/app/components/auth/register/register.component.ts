@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { AuthService } from '../../../services/auth.service';
 import { User } from '../../../models/user.model';
+import {AuthFormComponent} from "../auth-form/auth-form.component";
 
 
 @Component({
@@ -13,7 +14,8 @@ import { User } from '../../../models/user.model';
     FormsModule,
     CommonModule,
     RouterLink,
-    NgOptimizedImage
+    NgOptimizedImage,
+    AuthFormComponent
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'

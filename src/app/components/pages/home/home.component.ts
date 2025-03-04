@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {NavbarComponent} from "../../partials/navbar/navbar.component";
-import {NgOptimizedImage} from "@angular/common";
 import {HeroComponent} from "../../partials/hero/hero.component";
 
 @Component({
@@ -8,7 +7,6 @@ import {HeroComponent} from "../../partials/hero/hero.component";
   standalone: true,
   imports: [
     NavbarComponent,
-    NgOptimizedImage,
     HeroComponent
   ],
   templateUrl: './home.component.html',
