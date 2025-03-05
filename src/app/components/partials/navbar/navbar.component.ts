@@ -15,6 +15,7 @@ import {Router} from "@angular/router";
 export class NavbarComponent implements OnInit {
   isMobileMenuOpen = false;
   isLoggedIn = false;
+  isDropdownOpen = false;
 
   constructor(private authService: AuthService, private router: Router) {
   }
@@ -34,5 +35,9 @@ export class NavbarComponent implements OnInit {
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
   }
 }
