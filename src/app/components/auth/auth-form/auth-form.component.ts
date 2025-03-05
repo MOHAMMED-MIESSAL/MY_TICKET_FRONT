@@ -21,13 +21,6 @@ export class AuthFormComponent {
   @Input() errorMessage: string = '';
   @Output() submitAction = new EventEmitter<void>();
 
-  get title(): string {
-    return this.mode === 'login' ? 'Sign In' : 'Sign Up';
-  }
-
-  get buttonText(): string {
-    return this.mode === 'login' ? 'Sign in' : 'Register';
-  }
 
   get linkText(): string {
     return this.mode === 'login' ? "You don't have an account?" : "You already have an account?";

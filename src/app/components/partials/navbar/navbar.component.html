@@ -1,118 +1,191 @@
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white/40 backdrop-blur-xl shadow-md ">
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl shadow-sm ">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-around   items-center py-4">
+    <div class="flex justify-between items-center h-16">
       <!-- Logo -->
       <div class="flex items-center">
-        <a routerLink="/" class="flex-shrink-0">
-          <img class="h-8" src="assets/images/Logo.png" alt="Logo">
+        <a routerLink="/" class="flex-shrink-0 flex items-center">
+          <img class="h-8 w-auto" src="assets/images/Logo.png" alt="Logo">
         </a>
       </div>
 
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex space-x-4">
-        <a aria-current="page"
-           class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200  hover:text-gray-900 relative group"
-           routerLink="/home">
-          Home
-          <span
-            class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
+      <div class="hidden md:flex items-center space-x-1">
+        <a routerLink="/home"
+           class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-red-600 relative group">
+          Accueil
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-red-600 to-red-500 transition-all duration-300 group-hover:w-full"></span>
         </a>
-        <a aria-current="page"
-           class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200  hover:text-gray-900 relative group"
-           routerLink="/home">
-          Home
-          <span
-            class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
+        <a routerLink="/events"
+           class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-red-600 relative group">
+          Événements
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-red-600 to-red-500 transition-all duration-300 group-hover:w-full"></span>
         </a>
-        <a aria-current="page"
-           class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200  hover:text-gray-900 relative group"
-           routerLink="/home">
-          Home
-          <span
-            class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
+        <a routerLink="/categories"
+           class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-red-600 relative group">
+          Catégories
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-red-600 to-red-500 transition-all duration-300 group-hover:w-full"></span>
         </a>
-        <a aria-current="page"
-           class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200  hover:text-gray-900 relative group"
-           routerLink="/home">
-          Home
-          <span
-            class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
+        <a routerLink="/contact"
+           class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-red-600 relative group">
+          Contact
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-red-600 to-red-500 transition-all duration-300 group-hover:w-full"></span>
         </a>
       </div>
 
       <!-- Action Buttons for Desktop -->
-      <div class="hidden md:flex items-center space-x-4">
+      <div class="hidden md:flex items-center space-x-3">
         <a *ngIf="!isLoggedIn" routerLink="/login"
-           class="rounded-md bg-gradient-to-br from-red-600 to-orange-400 px-3 py-1.5 font-dm
-         text-sm font-medium text-white shadow-md shadow-red-400/50 transition-transform duration-200 ease-in-out hover:scale-[1.03]">
-          Sign up for free
+           class="text-sm font-medium text-gray-700 hover:text-red-600 px-3 py-2">
+          Se connecter
         </a>
-        <button *ngIf="isLoggedIn" (click)="logout()"
-                class="rounded-md bg-gradient-to-br from-red-600 to-orange-400 px-3 py-1.5 font-dm
-         text-sm font-medium text-white shadow-md shadow-red-400/50 transition-transform duration-200 ease-in-out hover:scale-[1.03]">
-          Logout
-        </button>
+        <a *ngIf="!isLoggedIn" routerLink="/signup"
+           class="rounded-full bg-gradient-to-r from-red-600 to-red-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:shadow-md hover:from-red-700 hover:to-red-600 transition-all duration-200 flex items-center">
+          <span>S'inscrire</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+
+        <!-- User Dropdown (when logged in) -->
+        <div *ngIf="isLoggedIn" class="relative">
+          <button class="flex items-center space-x-2 focus:outline-none group">
+            <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden border border-gray-300">
+              <img src="assets/images/avatar.png" alt="User" class="w-full h-full object-cover" onerror="this.src='assets/images/avatar-placeholder.png'">
+            </div>
+            <span class="text-sm font-medium text-gray-700 group-hover:text-red-600">Mon compte</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 group-hover:text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 z-10 hidden group-hover:block border border-gray-100">
+            <a routerLink="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600">
+              Profil
+            </a>
+            <a routerLink="/my-events" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600">
+              Mes événements
+            </a>
+            <div class="border-t border-gray-100"></div>
+            <button (click)="logout()" class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">
+              Déconnexion
+            </button>
+          </div>
+        </div>
       </div>
 
       <!-- Mobile Menu Button -->
-      <div class="md:hidden">
+      <div class="md:hidden flex items-center">
         <button (click)="toggleMobileMenu()"
-                class="text-gray-500 hover:text-gray-600 focus:outline-none">
-          <svg *ngIf="!isMobileMenuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-red-600 hover:bg-red-50 focus:outline-none transition duration-150 ease-in-out">
+          <svg *ngIf="!isMobileMenuOpen" class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
-          <svg *ngIf="isMobileMenuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          <svg *ngIf="isMobileMenuOpen" class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
     </div>
+  </div>
 
-    <!-- Mobile Menu -->
-    <div *ngIf="isMobileMenuOpen"
-         class="md:hidden absolute left-0 right-0 top-full bg-white shadow-lg animate-fade-in-down">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <a routerLink="/home" (click)="toggleMobileMenu()"
-           class="block text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-md">
-          Home
+  <!-- Mobile Menu -->
+  <div *ngIf="isMobileMenuOpen"
+       class="md:hidden bg-white border-t border-gray-100 shadow-inner">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      <!-- User Info (if logged in) -->
+      <div *ngIf="isLoggedIn" class="flex items-center space-x-3 px-3 py-3 border-b border-gray-100 mb-2">
+        <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden border border-gray-300">
+          <img src="assets/images/avatar.png" alt="User" class="w-full h-full object-cover" onerror="this.src='assets/images/avatar-placeholder.png'">
+        </div>
+        <div>
+          <div class="text-sm font-medium text-gray-900">Nom de l'utilisateur</div>
+          <div class="text-xs text-gray-500">user</div>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <a routerLink="/home" (click)="toggleMobileMenu()"
+         class="block px-3 py-2.5 text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors">
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7m-14 0l2 2m0 0l7 7 7-7m-14 0l2-2" />
+          </svg>
+          Accueil
+        </div>
+      </a>
+
+      <a routerLink="/events" (click)="toggleMobileMenu()"
+         class="block px-3 py-2.5 text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors">
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          Événements
+        </div>
+      </a>
+
+      <a routerLink="/categories" (click)="toggleMobileMenu()"
+         class="block px-3 py-2.5 text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors">
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+          </svg>
+          Catégories
+        </div>
+      </a>
+
+      <a routerLink="/contact" (click)="toggleMobileMenu()"
+         class="block px-3 py-2.5 text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors">
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          Contact
+        </div>
+      </a>
+
+      <!-- User Account Links (if logged in) -->
+      <div *ngIf="isLoggedIn" class="border-t border-gray-100 pt-2 mt-2">
+        <a routerLink="/profile" (click)="toggleMobileMenu()"
+           class="block px-3 py-2.5 text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors">
+          <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            Mon profil
+          </div>
         </a>
 
-        <a routerLink="/home" (click)="toggleMobileMenu()"
-           class="block text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-md">
-          Home
+        <a routerLink="/my-events" (click)="toggleMobileMenu()"
+           class="block px-3 py-2.5 text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors">
+          <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+            </svg>
+            Mes événements
+          </div>
         </a>
+      </div>
 
-        <a routerLink="/home" (click)="toggleMobileMenu()"
-           class="block text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-md">
-          Home
-        </a>
+      <!-- Mobile Action Buttons -->
+      <div class="border-t border-gray-100 pt-4 mt-2">
+        <div *ngIf="!isLoggedIn" class="space-y-2 px-3">
+          <a routerLink="/login" (click)="toggleMobileMenu()"
+             class="block w-full text-center px-4 py-2.5 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors">
+            Se connecter
+          </a>
 
-        <a routerLink="/home" (click)="toggleMobileMenu()"
-           class="block text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-md">
-          Home
-        </a>
+          <a routerLink="/signup" (click)="toggleMobileMenu()"
+             class="block w-full text-center px-4 py-2.5 bg-gradient-to-r from-red-600 to-red-500 rounded-lg text-white font-medium hover:from-red-700 hover:to-red-600 transition-colors">
+            S'inscrire
+          </a>
+        </div>
 
-
-        <!-- Mobile Action Buttons -->
-        <div class="flex flex-col pt-4 border-t border-gray-200">
-
-          <button *ngIf="!isLoggedIn" routerLink="/login" (click)="toggleMobileMenu()"
-                  class="mb-3 rounded-md bg-gradient-to-br from-red-600 to-orange-400 px-3 py-1.5 font-dm
-         text-sm font-medium text-white shadow-md shadow-red-400/50 transition-transform duration-200 ease-in-out hover:scale-[1.03]">
-            Sign up for free
-          </button>
-
-          <!--
-          <button *ngIf="!isLoggedIn" routerLink="/login" (click)="toggleMobileMenu()"
-                  class="mb-3rounded-md bg-gradient-to-br from-red-600 to-orange-400 px-3 py-1.5 font-dm
-         text-sm font-medium text-white shadow-md shadow-red-400/50 transition-transform duration-200 ease-in-out hover:scale-[1.03]">
-            Connexion
-          </button>
-          -->
-          <button *ngIf="isLoggedIn" (click)="logout()"
-                  class="rounded-md bg-gradient-to-br from-red-600 to-orange-400 px-3 py-1.5 font-dm
-         text-sm font-medium text-white shadow-md shadow-red-400/50 transition-transform duration-200 ease-in-out hover:scale-[1.03]">
-            Logout
+        <div *ngIf="isLoggedIn" class="px-3">
+          <button (click)="logout(); toggleMobileMenu();"
+                  class="block w-full text-center px-4 py-2.5 border border-red-200 rounded-lg text-red-600 font-medium hover:bg-red-50 transition-colors">
+            Déconnexion
           </button>
         </div>
       </div>
