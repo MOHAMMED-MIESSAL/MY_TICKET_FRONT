@@ -1,0 +1,881 @@
+<!-- Header with Glass Effect -->
+<app-navbar></app-navbar>
+
+<div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-8 my-16">
+  <div class="flex flex-col md:flex-row gap-8">
+
+    <!-- Sidebar - visible sur mobile et desktop, masquée sur tablette -->
+    <div class="flex-shrink-0 md:hidden lg:block lg:w-80">
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+        <!-- En-tête de la sidebar avec fond dégradé -->
+        <div class="bg-gradient-to-r from-red-600 to-red-500 px-6 py-5">
+          <h2 class="text-xl font-bold text-white">Filtres d'événements</h2>
+          <p class="text-white/80 text-sm mt-1">Affinez votre recherche</p>
+        </div>
+
+        <div class="p-6 space-y-6">
+          <!-- Recherche Section avec design amélioré -->
+          <div>
+            <h3 class="text-base font-semibold text-gray-800 mb-3 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-red-500" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              Recherche
+            </h3>
+            <div class="relative">
+              <input type="text" placeholder="Rechercher un événement..."
+                     class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 text-gray-700"/>
+              <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-3.5 h-5 w-5 text-gray-400" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Categories Section avec design amélioré -->
+          <div>
+            <h3 class="text-base font-semibold text-gray-800 mb-3 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-red-500" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+              Catégories
+            </h3>
+            <div class="bg-gray-50 rounded-xl p-1">
+              <div class="space-y-1">
+                <label class="flex items-center group cursor-pointer hover:bg-white p-2.5 rounded-lg transition-colors">
+                  <div class="relative flex items-center">
+                    <input type="radio" name="category" class="peer sr-only" value="all"/>
+                    <div
+                      class="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-red-500 peer-checked:border-[5px] transition-all"></div>
+                  </div>
+                  <span class="ml-3 text-gray-700 font-medium group-hover:text-red-600 transition-colors">Tous</span>
+                </label>
+                <label class="flex items-center group cursor-pointer hover:bg-white p-2.5 rounded-lg transition-colors">
+                  <div class="relative flex items-center">
+                    <input type="radio" name="category" class="peer sr-only" value="music"/>
+                    <div
+                      class="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-red-500 peer-checked:border-[5px] transition-all"></div>
+                  </div>
+                  <span class="ml-3 text-gray-700 font-medium group-hover:text-red-600 transition-colors">Musique</span>
+                </label>
+                <label class="flex items-center group cursor-pointer hover:bg-white p-2.5 rounded-lg transition-colors">
+                  <div class="relative flex items-center">
+                    <input type="radio" name="category" class="peer sr-only" value="sports"/>
+                    <div
+                      class="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-red-500 peer-checked:border-[5px] transition-all"></div>
+                  </div>
+                  <span class="ml-3 text-gray-700 font-medium group-hover:text-red-600 transition-colors">Sports</span>
+                </label>
+                <label class="flex items-center group cursor-pointer hover:bg-white p-2.5 rounded-lg transition-colors">
+                  <div class="relative flex items-center">
+                    <input type="radio" name="category" class="peer sr-only" value="art"/>
+                    <div
+                      class="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-red-500 peer-checked:border-[5px] transition-all"></div>
+                  </div>
+                  <span class="ml-3 text-gray-700 font-medium group-hover:text-red-600 transition-colors">Art</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Prix Section avec design amélioré -->
+          <div>
+            <h3 class="text-base font-semibold text-gray-800 mb-3 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-red-500" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Prix
+            </h3>
+            <div class="bg-gray-50 rounded-xl p-1">
+              <div class="space-y-1">
+                <label class="flex items-center group cursor-pointer hover:bg-white p-2.5 rounded-lg transition-colors">
+                  <div class="relative flex items-center">
+                    <input type="radio" name="price" class="peer sr-only" value="all"/>
+                    <div
+                      class="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-red-500 peer-checked:border-[5px] transition-all"></div>
+                  </div>
+                  <span
+                    class="ml-3 text-gray-700 font-medium group-hover:text-red-600 transition-colors">Tous les prix</span>
+                </label>
+                <label class="flex items-center group cursor-pointer hover:bg-white p-2.5 rounded-lg transition-colors">
+                  <div class="relative flex items-center">
+                    <input type="radio" name="price" class="peer sr-only" value="free"/>
+                    <div
+                      class="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-red-500 peer-checked:border-[5px] transition-all"></div>
+                  </div>
+                  <span class="ml-3 text-gray-700 font-medium group-hover:text-red-600 transition-colors">Gratuit</span>
+                  <span
+                    class="ml-auto bg-green-100 text-green-800 text-xs font-medium px-2 py-0.5 rounded">Populaire</span>
+                </label>
+                <label class="flex items-center group cursor-pointer hover:bg-white p-2.5 rounded-lg transition-colors">
+                  <div class="relative flex items-center">
+                    <input type="radio" name="price" class="peer sr-only" value="paid"/>
+                    <div
+                      class="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-red-500 peer-checked:border-[5px] transition-all"></div>
+                  </div>
+                  <span class="ml-3 text-gray-700 font-medium group-hover:text-red-600 transition-colors">Payant</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filtre de Date avec design amélioré -->
+          <div>
+            <h3 class="text-base font-semibold text-gray-800 mb-3 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-red-500" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              Date de l'événement
+            </h3>
+            <div class="space-y-3">
+              <div class="bg-gray-50 rounded-xl p-3">
+                <div class="grid grid-cols-2 gap-2">
+                  <div>
+                    <label class="block text-xs font-medium text-gray-500 mb-1">Date de début</label>
+                    <input type="date"
+                           class="w-full px-3 py-2 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 text-sm"/>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-gray-500 mb-1">Date de fin</label>
+                    <input type="date"
+                           class="w-full px-3 py-2 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 text-sm"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nouvelle section: Options avancées -->
+          <div>
+            <h3 class="text-base font-semibold text-gray-800 mb-3 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-red-500" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+              </svg>
+              Options avancées
+            </h3>
+            <div class="bg-gray-50 rounded-xl p-3 space-y-3">
+              <label class="flex items-center cursor-pointer">
+                <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                  <input type="checkbox" name="accessibilite" id="accessibilite"
+                         class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-gray-300 appearance-none cursor-pointer transition-transform duration-200 ease-in-out checked:right-0 checked:border-red-500 checked:transform checked:translate-x-full"/>
+                  <label for="accessibilite"
+                         class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                </div>
+                <span class="text-gray-700 text-sm font-medium">Accessible PMR</span>
+              </label>
+
+              <label class="flex items-center cursor-pointer">
+                <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                  <input type="checkbox" name="parking" id="parking"
+                         class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-gray-300 appearance-none cursor-pointer transition-transform duration-200 ease-in-out checked:right-0 checked:border-red-500 checked:transform checked:translate-x-full"/>
+                  <label for="parking"
+                         class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                </div>
+                <span class="text-gray-700 text-sm font-medium">Parking disponible</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Boutons d'action -->
+        <div class="px-6 py-4 bg-gray-50 border-t border-gray-100 flex flex-col gap-2">
+          <button
+            class="w-full bg-gradient-to-r from-red-600 to-red-500 text-white py-3 rounded-xl hover:from-red-700 hover:to-red-600 transition-all duration-300 font-semibold flex items-center justify-center shadow-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            Appliquer les filtres
+          </button>
+
+          <button
+            class="w-full bg-white text-gray-700 py-2.5 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors font-medium flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
+            Réinitialiser
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content - Adapté pour prendre toute la largeur sur tablette -->
+    <div class="flex-1">
+
+      <!-- Filtres horizontaux visibles uniquement sur tablette -->
+      <div class="hidden md:block lg:hidden mb-6">
+        <div class="bg-white rounded-xl shadow-lg p-4 border border-gray-100">
+          <div class="flex flex-col gap-4">
+            <!-- Titre et recherche sur la première ligne -->
+            <div class="flex items-center justify-between">
+              <h2 class="text-lg font-semibold text-gray-800 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                </svg>
+                Filtres
+              </h2>
+
+              <div class="flex gap-2">
+                <button class="text-xs text-red-600 hover:text-red-700 font-medium flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                  Réinitialiser
+                </button>
+
+                <div class="relative">
+                  <button class="flex items-center text-xs bg-red-50 text-red-600 px-2 py-1 rounded-lg font-medium hover:bg-red-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                    Plus d'options
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Barre de recherche et filtres sur la deuxième ligne -->
+            <div class="flex flex-wrap gap-3 items-center">
+              <!-- Recherche améliorée -->
+              <div class="relative flex-grow min-w-[200px]">
+                <input type="text" placeholder="Rechercher un événement..."
+                       class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent focus:bg-white transition-all duration-200 text-gray-700" />
+                <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-2.5 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+
+              <!-- Filtres rapides avec style amélioré -->
+              <div class="flex flex-wrap gap-2">
+                <!-- Catégories -->
+                <div class="relative min-w-[140px]">
+                  <select class="appearance-none w-full pl-9 pr-8 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent focus:bg-white transition-all duration-200 text-gray-700">
+                    <option value="">Toutes catégories</option>
+                    <option value="music">Musique</option>
+                    <option value="sports">Sports</option>
+                    <option value="art">Art</option>
+                  </select>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-2.5 h-4 w-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-2 top-3 h-4 w-4 text-gray-400 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+
+                <!-- Prix -->
+                <div class="relative min-w-[120px]">
+                  <select class="appearance-none w-full pl-9 pr-8 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent focus:bg-white transition-all duration-200 text-gray-700">
+                    <option value="">Tous les prix</option>
+                    <option value="free">Gratuit</option>
+                    <option value="paid">Payant</option>
+                  </select>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-2.5 h-4 w-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-2 top-3 h-4 w-4 text-gray-400 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+
+                <!-- Date -->
+                <div class="relative min-w-[140px]">
+                  <input type="date" class="w-full pl-9 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent focus:bg-white transition-all duration-200 text-gray-700" />
+                  <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-2.5 h-4 w-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+
+                <!-- Bouton de recherche -->
+                <button class="bg-gradient-to-r from-red-600 to-red-500 text-white py-2.5 px-4 rounded-lg hover:from-red-700 hover:to-red-600 transition-all duration-300 font-medium flex items-center shadow-sm whitespace-nowrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                  Rechercher
+                </button>
+              </div>
+            </div>
+
+            <!-- Tags de filtres actifs (à afficher seulement quand des filtres sont sélectionnés) -->
+            <div class="flex flex-wrap gap-2 items-center pt-1">
+              <span class="text-xs text-gray-500 font-medium">Filtres actifs:</span>
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+          Musique
+          <button class="ml-1 text-red-600 hover:text-red-900">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </span>
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+          Gratuit
+          <button class="ml-1 text-green-600 hover:text-green-900">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-8">
+        <h1 class="text-4xl font-monoton text-gray-900 mb-2">All Events</h1>
+      </div>
+
+      <!-- Grid avec 3 colonnes responsive - Adaptation pour tablette -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+
+
+        <!-- Event Card avec style amélioré et optimisation tablette -->
+        <div
+          class="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-red-100 transform hover:-translate-y-2 group w-full">
+          <!-- Image avec overlay amélioré -->
+          <div class="relative">
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70 group-hover:via-black/30 group-hover:to-black/80 transition-all duration-300"></div>
+            <img
+              src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Festival de musique"
+              class="w-full h-48 sm:h-56 md:h-64 object-cover transition-transform duration-700 group-hover:scale-105"/>
+            <div
+              class="absolute top-3 md:top-4 right-3 md:right-4 bg-white/90 backdrop-blur-sm text-red-600 px-2 md:px-3 py-1 rounded-full text-xs font-bold">
+              <i class="fas fa-calendar-alt mr-1"></i> 15-17 Juillet
+            </div>
+            <div
+              class="absolute bottom-3 md:bottom-4 left-3 md:left-4 bg-gradient-to-r from-red-600 to-red-500 shadow-md shadow-red-400/30 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-semibold tracking-wider uppercase">
+              Festival
+            </div>
+          </div>
+
+          <!-- Contenu de la carte -->
+          <div class="p-4 sm:p-5 md:p-6 space-y-3 md:space-y-4">
+            <div>
+              <div class="flex justify-between items-start">
+                <h3
+                  class="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2 group-hover:text-red-600 transition-colors duration-300 line-clamp-1">
+                  Festival Électro Summer</h3>
+                <span class="bg-red-50 text-red-600 text-xs font-medium px-2 py-1 rounded-lg whitespace-nowrap ml-2">Populaire</span>
+              </div>
+              <p class="text-gray-600 text-xs sm:text-sm leading-relaxed line-clamp-2">Une expérience musicale unique
+                avec les meilleurs DJs internationaux.</p>
+            </div>
+
+            <!-- Informations événement avec icônes plus modernes -->
+            <div class="space-y-2 md:space-y-3 text-xs sm:text-sm">
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <span class="font-medium truncate">15-17 Juillet 2025</span>
+              </div>
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span class="font-medium truncate">Parc des Expositions, Paris</span>
+              </div>
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+                <span class="font-medium truncate">50,000+ participants</span>
+              </div>
+            </div>
+
+            <!-- Statut de l'événement -->
+            <div class="flex justify-between items-center border-t border-gray-100 pt-3 text-xs sm:text-sm">
+              <div class="flex items-center">
+                <div class="h-2 w-2 md:h-2.5 md:w-2.5 rounded-full bg-green-500 mr-1.5 md:mr-2"></div>
+                <span class="text-green-600 font-medium">Places disponibles</span>
+              </div>
+              <span class="text-gray-500 text-xs whitespace-nowrap">
+        <i class="fas fa-chair mr-1"></i> 1243 places
+      </span>
+            </div>
+
+            <!-- Bouton avec effet de survol amélioré -->
+            <div class="pt-2">
+              <a routerLink="#"
+                 class="w-full block text-center bg-gradient-to-r from-red-600 to-red-500 text-white py-2.5 md:py-3 rounded-full shadow-md shadow-red-500/30 hover:shadow-lg hover:shadow-red-500/40 transition-all duration-300 font-semibold transform hover:translate-y-px text-sm md:text-base">
+                Réserver maintenant
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event Card avec style amélioré et optimisation tablette -->
+        <div
+          class="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-red-100 transform hover:-translate-y-2 group w-full">
+          <!-- Image avec overlay amélioré -->
+          <div class="relative">
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70 group-hover:via-black/30 group-hover:to-black/80 transition-all duration-300"></div>
+            <img
+              src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Festival de musique"
+              class="w-full h-48 sm:h-56 md:h-64 object-cover transition-transform duration-700 group-hover:scale-105"/>
+            <div
+              class="absolute top-3 md:top-4 right-3 md:right-4 bg-white/90 backdrop-blur-sm text-red-600 px-2 md:px-3 py-1 rounded-full text-xs font-bold">
+              <i class="fas fa-calendar-alt mr-1"></i> 15-17 Juillet
+            </div>
+            <div
+              class="absolute bottom-3 md:bottom-4 left-3 md:left-4 bg-gradient-to-r from-red-600 to-red-500 shadow-md shadow-red-400/30 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-semibold tracking-wider uppercase">
+              Festival
+            </div>
+          </div>
+
+          <!-- Contenu de la carte -->
+          <div class="p-4 sm:p-5 md:p-6 space-y-3 md:space-y-4">
+            <div>
+              <div class="flex justify-between items-start">
+                <h3
+                  class="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2 group-hover:text-red-600 transition-colors duration-300 line-clamp-1">
+                  Festival Électro Summer</h3>
+                <span class="bg-red-50 text-red-600 text-xs font-medium px-2 py-1 rounded-lg whitespace-nowrap ml-2">Populaire</span>
+              </div>
+              <p class="text-gray-600 text-xs sm:text-sm leading-relaxed line-clamp-2">Une expérience musicale unique
+                avec les meilleurs DJs internationaux.</p>
+            </div>
+
+            <!-- Informations événement avec icônes plus modernes -->
+            <div class="space-y-2 md:space-y-3 text-xs sm:text-sm">
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <span class="font-medium truncate">15-17 Juillet 2025</span>
+              </div>
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span class="font-medium truncate">Parc des Expositions, Paris</span>
+              </div>
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+                <span class="font-medium truncate">50,000+ participants</span>
+              </div>
+            </div>
+
+            <!-- Statut de l'événement -->
+            <div class="flex justify-between items-center border-t border-gray-100 pt-3 text-xs sm:text-sm">
+              <div class="flex items-center">
+                <div class="h-2 w-2 md:h-2.5 md:w-2.5 rounded-full bg-green-500 mr-1.5 md:mr-2"></div>
+                <span class="text-green-600 font-medium">Places disponibles</span>
+              </div>
+              <span class="text-gray-500 text-xs whitespace-nowrap">
+        <i class="fas fa-chair mr-1"></i> 1243 places
+      </span>
+            </div>
+
+            <!-- Bouton avec effet de survol amélioré -->
+            <div class="pt-2">
+              <a routerLink="#"
+                 class="w-full block text-center bg-gradient-to-r from-red-600 to-red-500 text-white py-2.5 md:py-3 rounded-full shadow-md shadow-red-500/30 hover:shadow-lg hover:shadow-red-500/40 transition-all duration-300 font-semibold transform hover:translate-y-px text-sm md:text-base">
+                Réserver maintenant
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Event Card avec style amélioré et optimisation tablette -->
+        <div
+          class="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-red-100 transform hover:-translate-y-2 group w-full">
+          <!-- Image avec overlay amélioré -->
+          <div class="relative">
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70 group-hover:via-black/30 group-hover:to-black/80 transition-all duration-300"></div>
+            <img
+              src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Festival de musique"
+              class="w-full h-48 sm:h-56 md:h-64 object-cover transition-transform duration-700 group-hover:scale-105"/>
+            <div
+              class="absolute top-3 md:top-4 right-3 md:right-4 bg-white/90 backdrop-blur-sm text-red-600 px-2 md:px-3 py-1 rounded-full text-xs font-bold">
+              <i class="fas fa-calendar-alt mr-1"></i> 15-17 Juillet
+            </div>
+            <div
+              class="absolute bottom-3 md:bottom-4 left-3 md:left-4 bg-gradient-to-r from-red-600 to-red-500 shadow-md shadow-red-400/30 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-semibold tracking-wider uppercase">
+              Festival
+            </div>
+          </div>
+
+          <!-- Contenu de la carte -->
+          <div class="p-4 sm:p-5 md:p-6 space-y-3 md:space-y-4">
+            <div>
+              <div class="flex justify-between items-start">
+                <h3
+                  class="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2 group-hover:text-red-600 transition-colors duration-300 line-clamp-1">
+                  Festival Électro Summer</h3>
+                <span class="bg-red-50 text-red-600 text-xs font-medium px-2 py-1 rounded-lg whitespace-nowrap ml-2">Populaire</span>
+              </div>
+              <p class="text-gray-600 text-xs sm:text-sm leading-relaxed line-clamp-2">Une expérience musicale unique
+                avec les meilleurs DJs internationaux.</p>
+            </div>
+
+            <!-- Informations événement avec icônes plus modernes -->
+            <div class="space-y-2 md:space-y-3 text-xs sm:text-sm">
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <span class="font-medium truncate">15-17 Juillet 2025</span>
+              </div>
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span class="font-medium truncate">Parc des Expositions, Paris</span>
+              </div>
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+                <span class="font-medium truncate">50,000+ participants</span>
+              </div>
+            </div>
+
+            <!-- Statut de l'événement -->
+            <div class="flex justify-between items-center border-t border-gray-100 pt-3 text-xs sm:text-sm">
+              <div class="flex items-center">
+                <div class="h-2 w-2 md:h-2.5 md:w-2.5 rounded-full bg-green-500 mr-1.5 md:mr-2"></div>
+                <span class="text-green-600 font-medium">Places disponibles</span>
+              </div>
+              <span class="text-gray-500 text-xs whitespace-nowrap">
+        <i class="fas fa-chair mr-1"></i> 1243 places
+      </span>
+            </div>
+
+            <!-- Bouton avec effet de survol amélioré -->
+            <div class="pt-2">
+              <a routerLink="#"
+                 class="w-full block text-center bg-gradient-to-r from-red-600 to-red-500 text-white py-2.5 md:py-3 rounded-full shadow-md shadow-red-500/30 hover:shadow-lg hover:shadow-red-500/40 transition-all duration-300 font-semibold transform hover:translate-y-px text-sm md:text-base">
+                Réserver maintenant
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Event Card avec style amélioré et optimisation tablette -->
+        <div
+          class="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-red-100 transform hover:-translate-y-2 group w-full">
+          <!-- Image avec overlay amélioré -->
+          <div class="relative">
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70 group-hover:via-black/30 group-hover:to-black/80 transition-all duration-300"></div>
+            <img
+              src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Festival de musique"
+              class="w-full h-48 sm:h-56 md:h-64 object-cover transition-transform duration-700 group-hover:scale-105"/>
+            <div
+              class="absolute top-3 md:top-4 right-3 md:right-4 bg-white/90 backdrop-blur-sm text-red-600 px-2 md:px-3 py-1 rounded-full text-xs font-bold">
+              <i class="fas fa-calendar-alt mr-1"></i> 15-17 Juillet
+            </div>
+            <div
+              class="absolute bottom-3 md:bottom-4 left-3 md:left-4 bg-gradient-to-r from-red-600 to-red-500 shadow-md shadow-red-400/30 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-semibold tracking-wider uppercase">
+              Festival
+            </div>
+          </div>
+
+          <!-- Contenu de la carte -->
+          <div class="p-4 sm:p-5 md:p-6 space-y-3 md:space-y-4">
+            <div>
+              <div class="flex justify-between items-start">
+                <h3
+                  class="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2 group-hover:text-red-600 transition-colors duration-300 line-clamp-1">
+                  Festival Électro Summer</h3>
+                <span class="bg-red-50 text-red-600 text-xs font-medium px-2 py-1 rounded-lg whitespace-nowrap ml-2">Populaire</span>
+              </div>
+              <p class="text-gray-600 text-xs sm:text-sm leading-relaxed line-clamp-2">Une expérience musicale unique
+                avec les meilleurs DJs internationaux.</p>
+            </div>
+
+            <!-- Informations événement avec icônes plus modernes -->
+            <div class="space-y-2 md:space-y-3 text-xs sm:text-sm">
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <span class="font-medium truncate">15-17 Juillet 2025</span>
+              </div>
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span class="font-medium truncate">Parc des Expositions, Paris</span>
+              </div>
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+                <span class="font-medium truncate">50,000+ participants</span>
+              </div>
+            </div>
+
+            <!-- Statut de l'événement -->
+            <div class="flex justify-between items-center border-t border-gray-100 pt-3 text-xs sm:text-sm">
+              <div class="flex items-center">
+                <div class="h-2 w-2 md:h-2.5 md:w-2.5 rounded-full bg-green-500 mr-1.5 md:mr-2"></div>
+                <span class="text-green-600 font-medium">Places disponibles</span>
+              </div>
+              <span class="text-gray-500 text-xs whitespace-nowrap">
+        <i class="fas fa-chair mr-1"></i> 1243 places
+      </span>
+            </div>
+
+            <!-- Bouton avec effet de survol amélioré -->
+            <div class="pt-2">
+              <a routerLink="#"
+                 class="w-full block text-center bg-gradient-to-r from-red-600 to-red-500 text-white py-2.5 md:py-3 rounded-full shadow-md shadow-red-500/30 hover:shadow-lg hover:shadow-red-500/40 transition-all duration-300 font-semibold transform hover:translate-y-px text-sm md:text-base">
+                Réserver maintenant
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event Card avec style amélioré et optimisation tablette -->
+        <div
+          class="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-red-100 transform hover:-translate-y-2 group w-full">
+          <!-- Image avec overlay amélioré -->
+          <div class="relative">
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70 group-hover:via-black/30 group-hover:to-black/80 transition-all duration-300"></div>
+            <img
+              src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Festival de musique"
+              class="w-full h-48 sm:h-56 md:h-64 object-cover transition-transform duration-700 group-hover:scale-105"/>
+            <div
+              class="absolute top-3 md:top-4 right-3 md:right-4 bg-white/90 backdrop-blur-sm text-red-600 px-2 md:px-3 py-1 rounded-full text-xs font-bold">
+              <i class="fas fa-calendar-alt mr-1"></i> 15-17 Juillet
+            </div>
+            <div
+              class="absolute bottom-3 md:bottom-4 left-3 md:left-4 bg-gradient-to-r from-red-600 to-red-500 shadow-md shadow-red-400/30 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-semibold tracking-wider uppercase">
+              Festival
+            </div>
+          </div>
+
+          <!-- Contenu de la carte -->
+          <div class="p-4 sm:p-5 md:p-6 space-y-3 md:space-y-4">
+            <div>
+              <div class="flex justify-between items-start">
+                <h3
+                  class="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2 group-hover:text-red-600 transition-colors duration-300 line-clamp-1">
+                  Festival Électro Summer</h3>
+                <span class="bg-red-50 text-red-600 text-xs font-medium px-2 py-1 rounded-lg whitespace-nowrap ml-2">Populaire</span>
+              </div>
+              <p class="text-gray-600 text-xs sm:text-sm leading-relaxed line-clamp-2">Une expérience musicale unique
+                avec les meilleurs DJs internationaux.</p>
+            </div>
+
+            <!-- Informations événement avec icônes plus modernes -->
+            <div class="space-y-2 md:space-y-3 text-xs sm:text-sm">
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <span class="font-medium truncate">15-17 Juillet 2025</span>
+              </div>
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span class="font-medium truncate">Parc des Expositions, Paris</span>
+              </div>
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+                <span class="font-medium truncate">50,000+ participants</span>
+              </div>
+            </div>
+
+            <!-- Statut de l'événement -->
+            <div class="flex justify-between items-center border-t border-gray-100 pt-3 text-xs sm:text-sm">
+              <div class="flex items-center">
+                <div class="h-2 w-2 md:h-2.5 md:w-2.5 rounded-full bg-green-500 mr-1.5 md:mr-2"></div>
+                <span class="text-green-600 font-medium">Places disponibles</span>
+              </div>
+              <span class="text-gray-500 text-xs whitespace-nowrap">
+        <i class="fas fa-chair mr-1"></i> 1243 places
+      </span>
+            </div>
+
+            <!-- Bouton avec effet de survol amélioré -->
+            <div class="pt-2">
+              <a routerLink="#"
+                 class="w-full block text-center bg-gradient-to-r from-red-600 to-red-500 text-white py-2.5 md:py-3 rounded-full shadow-md shadow-red-500/30 hover:shadow-lg hover:shadow-red-500/40 transition-all duration-300 font-semibold transform hover:translate-y-px text-sm md:text-base">
+                Réserver maintenant
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Event Card avec style amélioré et optimisation tablette -->
+        <div
+          class="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-red-100 transform hover:-translate-y-2 group w-full">
+          <!-- Image avec overlay amélioré -->
+          <div class="relative">
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70 group-hover:via-black/30 group-hover:to-black/80 transition-all duration-300"></div>
+            <img
+              src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Festival de musique"
+              class="w-full h-48 sm:h-56 md:h-64 object-cover transition-transform duration-700 group-hover:scale-105"/>
+            <div
+              class="absolute top-3 md:top-4 right-3 md:right-4 bg-white/90 backdrop-blur-sm text-red-600 px-2 md:px-3 py-1 rounded-full text-xs font-bold">
+              <i class="fas fa-calendar-alt mr-1"></i> 15-17 Juillet
+            </div>
+            <div
+              class="absolute bottom-3 md:bottom-4 left-3 md:left-4 bg-gradient-to-r from-red-600 to-red-500 shadow-md shadow-red-400/30 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs font-semibold tracking-wider uppercase">
+              Festival
+            </div>
+          </div>
+
+          <!-- Contenu de la carte -->
+          <div class="p-4 sm:p-5 md:p-6 space-y-3 md:space-y-4">
+            <div>
+              <div class="flex justify-between items-start">
+                <h3
+                  class="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2 group-hover:text-red-600 transition-colors duration-300 line-clamp-1">
+                  Festival Électro Summer</h3>
+                <span class="bg-red-50 text-red-600 text-xs font-medium px-2 py-1 rounded-lg whitespace-nowrap ml-2">Populaire</span>
+              </div>
+              <p class="text-gray-600 text-xs sm:text-sm leading-relaxed line-clamp-2">Une expérience musicale unique
+                avec les meilleurs DJs internationaux.</p>
+            </div>
+
+            <!-- Informations événement avec icônes plus modernes -->
+            <div class="space-y-2 md:space-y-3 text-xs sm:text-sm">
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <span class="font-medium truncate">15-17 Juillet 2025</span>
+              </div>
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span class="font-medium truncate">Parc des Expositions, Paris</span>
+              </div>
+              <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 text-red-500 flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+                <span class="font-medium truncate">50,000+ participants</span>
+              </div>
+            </div>
+
+            <!-- Statut de l'événement -->
+            <div class="flex justify-between items-center border-t border-gray-100 pt-3 text-xs sm:text-sm">
+              <div class="flex items-center">
+                <div class="h-2 w-2 md:h-2.5 md:w-2.5 rounded-full bg-green-500 mr-1.5 md:mr-2"></div>
+                <span class="text-green-600 font-medium">Places disponibles</span>
+              </div>
+              <span class="text-gray-500 text-xs whitespace-nowrap">
+        <i class="fas fa-chair mr-1"></i> 1243 places
+      </span>
+            </div>
+
+            <!-- Bouton avec effet de survol amélioré -->
+            <div class="pt-2">
+              <a routerLink="#"
+                 class="w-full block text-center bg-gradient-to-r from-red-600 to-red-500 text-white py-2.5 md:py-3 rounded-full shadow-md shadow-red-500/30 hover:shadow-lg hover:shadow-red-500/40 transition-all duration-300 font-semibold transform hover:translate-y-px text-sm md:text-base">
+                Réserver maintenant
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

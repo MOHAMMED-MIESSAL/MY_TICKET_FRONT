@@ -9,6 +9,7 @@ module.exports = {
         open: ["Open Sans", "sans-serif"],
         sixtyfour: ["Sixtyfour Convergence", "sans-serif"],
         monoton: ["Monoton" , "sans-serif"],
+        walter : [ "Walter Turncoat", "cursive"],
       },
     },
   },
