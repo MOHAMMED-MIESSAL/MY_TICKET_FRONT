@@ -1,5 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NgIf} from "@angular/common";
+import {RouterLink} from "@angular/router";
+import {AuthService} from "../../../../services/auth.service";
 
 @Component({
   standalone: true,
@@ -7,12 +9,22 @@ import {NgIf} from "@angular/common";
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
   imports: [
-    NgIf
+    NgIf,
+    RouterLink
   ]
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
   isPagesMenuOpen = false;
   isSideMenuOpen = false;
+  isLoggedIn = false;
+
+  constructor(private authService: AuthService) {
+
+  }
+
+  ngOnInit() {
+    this.checkLoginStatus();
+  }
 
   togglePagesMenu(): void {
     this.isPagesMenuOpen = !this.isPagesMenuOpen;
@@ -24,5 +36,13 @@ export class SidebarComponent {
 
   closeSideMenu(): void {
     this.isSideMenuOpen = false;
+  }
+
+  logout(): void {
+    this.authService.logout();
+  }
+
+  checkLoginStatus() {
+    this.isLoggedIn = this.authService.isLoggedIn();
   }
 }
