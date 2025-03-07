@@ -14,7 +14,8 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   private httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
   };
 
   register(user: User): Observable<any> {
