@@ -12,6 +12,19 @@
           Manage Categories
         </h2>
 
+        <div class="flex items-center justify-start mt-4 space-x-2">
+
+          <a routerLink="/dashboard/categories/create">
+            <button
+              class="flex items-center justify-between  px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red">
+              <span class="mr-2" aria-hiddeLogoutn="true">+</span>
+              Add Category
+              <span class="ml-2" aria-hiddeLogoutn="true">+</span>
+            </button>
+          </a>
+
+        </div>
+
         <!-- Choisir le nombre d'éléments par page -->
         <div class="flex items-center justify-end my-4 space-x-2">
           <label for="pageSize" class="text-gray-500 text-sm dark:text-gray-400 ">Display per page:</label>

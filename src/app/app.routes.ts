@@ -10,6 +10,7 @@ import {EventsComponent} from "./components/dashboard/pages/events/events.compon
 import {ReservationsComponent} from "./components/dashboard/pages/reservations/reservations.component";
 import {CreateCategoryComponent} from "./components/dashboard/pages/category/create-category/create-category.component";
 import {UpdateCategoryComponent} from "./components/dashboard/pages/category/update-category/update-category.component";
+import {CreateUserComponent} from "./components/dashboard/pages/user/create-user/create-user.component";
 
 export const routes: Routes = [
   {path: "", component: HomeComponent, pathMatch: "full"},
@@ -19,6 +20,7 @@ export const routes: Routes = [
   {path: "events", component: EventListComponent},
   {path: "dashboard", component: MainComponent},
   {path: "dashboard/users", component: UserComponent},
+  {path: "dashboard/users/create", component: CreateUserComponent},
   {path: "dashboard/categories", component: CategoryComponent},
   {path: "dashboard/categories/create", component: CreateCategoryComponent},
   { path: 'dashboard/categories/update-category/:id', component: UpdateCategoryComponent },

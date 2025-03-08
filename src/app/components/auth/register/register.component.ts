@@ -21,6 +21,7 @@ export class RegisterComponent {
 
 
     user: User = {
+        id: '',
         email: '',
         password: '',
         role: 'USER', // Default value, but can be changed by the user

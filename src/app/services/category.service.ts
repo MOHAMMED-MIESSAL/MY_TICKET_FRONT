@@ -18,8 +18,7 @@ export class CategoryService {
   getAllCategories(page: number = 0, size: number = 10): Observable<{
     content: Category[],
     totalElements: number,
-    totalPages: number
-  }> {
+    totalPages: number  }> {
     const token = localStorage.getItem('token');
 
     // Vérifier si le token est présent et créer les en-têtes
