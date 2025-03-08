@@ -31,7 +31,6 @@ export class CreateCategoryComponent {
     const token = localStorage.getItem('token');
 
     if (!token) {
-      this.errorMessage = "Vous devez être connecté.";
       this.router.navigate(['/login']);
       return;
     }

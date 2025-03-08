@@ -93,4 +93,40 @@ export class CategoryService {
   }
 
 
+  getCategoryById(categoryId: string): Observable<Category> {
+    const token = localStorage.getItem('token');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    };
+
+    return this.http.get<Category>(`${this.apiUrl}/${categoryId}`, httpOptions)
+      .pipe(
+        catchError(error => {
+          console.error('Get category by id error:', error);
+          return throwError(() => error);
+        })
+      );
+  }
+
+  updateCategory(id: string, categoryData: any): Observable<Category> {
+    const token = localStorage.getItem('token');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    };
+
+    return this.http.put<Category>(`${this.apiUrl}/${id}`, categoryData, httpOptions)
+      .pipe(
+        catchError(error => {
+          console.error('Update category error:', error);
+          return throwError(() => error);
+        })
+      );
+  }
+
 }
