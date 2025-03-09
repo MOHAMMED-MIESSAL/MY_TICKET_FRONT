@@ -11,13 +11,13 @@ import {RouterLink} from "@angular/router";
 @Component({
   selector: 'app-user',
   standalone: true,
-    imports: [
-        HeaderComponent,
-        SidebarComponent,
-        FormsModule,
-        NgForOf,
-        RouterLink
-    ],
+  imports: [
+    HeaderComponent,
+    SidebarComponent,
+    FormsModule,
+    NgForOf,
+    RouterLink
+  ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
