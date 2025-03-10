@@ -94,7 +94,7 @@
                   {{ event.user.username }}
                 </td>
                 <td class="px-4 py-3 text-xs" *ngIf="userRole === 'ORGANIZER'">
-                  <a [routerLink]="['/dashboard/categories/update-category/', event.id]">
+                  <a [routerLink]="['/dashboard/events/update-event/', event.id]">
                   <button
                     class="lg:w-full flex  items-center justify-between md:w-1/2 sm:w-full  px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red">
 

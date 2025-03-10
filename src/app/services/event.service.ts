@@ -85,6 +85,23 @@ export class EventService {
 
   }
 
+  getEventById(eventId: string): Observable<Event> {
+    const token = localStorage.getItem('token');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    return this.http.get<any>(`${this.apiUrl}/${eventId}`, httpOptions)
+      .pipe(
+        catchError(error => {
+          console.error('Get event by id error:', error);
+          return throwError(() => error);
+        })
+      );
+  }
+
 
   deleteEvent(eventId: string): Observable<any> {
     const token = localStorage.getItem('token');
@@ -118,6 +135,23 @@ export class EventService {
       .pipe(
         catchError(error => {
           console.error('Create event error:', error);
+          return throwError(() => error);
+        })
+      );
+  }
+
+  updateEvent(id: string, event: Event): Observable<Event> {
+    const token = localStorage.getItem('token');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    return this.http.put<any>(`${this.apiUrl}/${id}`, event, httpOptions)
+      .pipe(
+        catchError(error => {
+          console.error('Update event error:', error);
           return throwError(() => error);
         })
       );
