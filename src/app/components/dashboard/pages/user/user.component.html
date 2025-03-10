@@ -47,6 +47,7 @@
                 <th class="px-4 py-3">Email</th>
                 <th class="px-4 py-3">Sex</th>
                 <th class="px-4 py-3">Role</th>
+                <th class="px-4 py-3">Update Status</th>
                 <th class="px-4 py-3">Delete</th>
               </tr>
               </thead>
@@ -99,6 +100,17 @@
                   >
                          {{ user.role }}
                         </span>
+                </td>
+                <td class="px-4 py-3 text-xs" >
+                  <a [routerLink]="['/dashboard/users/update-status-user/', user.id]">
+                    <button
+                      class="lg:w-full flex  items-center justify-between md:w-1/2 sm:w-full  px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red">
+
+                      Edit
+                      <i class="fa-solid fa-pen-to-square sm:ml-1 md:ml-2 h-5 w-5"></i>
+
+                    </button>
+                  </a>
                 </td>
 
                 <td class="px-4 py-3 text-xs">

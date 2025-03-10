@@ -100,16 +100,16 @@ export class UserService {
   }
 
 
-  updateUser(user: User): Observable<any> {
+  updateUserStatus(id: string, userData: any): Observable<any> {
     const token = localStorage.getItem('token');
-    const httpHeaders = token ?
-      new HttpHeaders({
+    const httpOptions = {
+      headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       })
-      : new HttpHeaders({'Content-Type': 'application/json'});
+    };
 
-    return this.http.put<any>(`${this.apiUrl}/${user.id}`, user, {headers: httpHeaders})
+    return this.http.put<any>(`${this.apiUrl}/${id}`, userData, httpOptions)
 
       .pipe(
         catchError(error => {
@@ -118,6 +118,27 @@ export class UserService {
             return throwError(() => new Error('Token expiré ou non valide. Veuillez vous reconnecter.'));
           }
           return throwError(() => new Error('Une erreur s\'est produite lors de la mise à jour de l\'utilisateur.'));
+        })
+      );
+  }
+
+  getUserById(id: string): Observable<User> {
+    const token = localStorage.getItem('token');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    };
+
+    return this.http.get<User>(`${this.apiUrl}/${id}`, httpOptions)
+      .pipe(
+        catchError(error => {
+          console.error('Erreur lors de la récupération de l\'utilisateur :', error);
+          if (error.status === 401) {
+            return throwError(() => new Error('Token expiré ou non valide. Veuillez vous reconnecter.'));
+          }
+          return throwError(() => new Error('Une erreur s\'est produite lors de la récupération de l\'utilisateur.'));
         })
       );
   }

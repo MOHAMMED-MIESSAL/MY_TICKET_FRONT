@@ -4,7 +4,7 @@ import {SidebarComponent} from "../../components/sidebar/sidebar.component";
 import {User} from "../../../../models/user.model";
 import {UserService} from "../../../../services/user.service";
 import {FormsModule} from "@angular/forms";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {RouterLink} from "@angular/router";
 
 
@@ -16,7 +16,8 @@ import {RouterLink} from "@angular/router";
     SidebarComponent,
     FormsModule,
     NgForOf,
-    RouterLink
+    RouterLink,
+    NgIf
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'

@@ -13,6 +13,7 @@ import {UpdateCategoryComponent} from "./components/dashboard/pages/category/upd
 import {CreateUserComponent} from "./components/dashboard/pages/user/create-user/create-user.component";
 import {CreateEventComponent} from "./components/dashboard/pages/events/create-event/create-event.component";
 import {UpdateEventComponent} from "./components/dashboard/pages/events/update-event/update-event.component";
+import {UpdateStatusUserComponent} from "./components/dashboard/pages/user/update-status-user/update-status-user.component";
 
 export const routes: Routes = [
   {path: "", component: HomeComponent, pathMatch: "full"},
@@ -23,9 +24,10 @@ export const routes: Routes = [
   {path: "dashboard", component: MainComponent},
   {path: "dashboard/users", component: UserComponent},
   {path: "dashboard/users/create", component: CreateUserComponent},
+  {path: "dashboard/users/update-status-user/:id", component: UpdateStatusUserComponent},
   {path: "dashboard/categories", component: CategoryComponent},
   {path: "dashboard/categories/create", component: CreateCategoryComponent},
-  { path: 'dashboard/categories/update-category/:id', component: UpdateCategoryComponent },
+  {path: 'dashboard/categories/update-category/:id', component: UpdateCategoryComponent},
   {path: "dashboard/events", component: EventsComponent},
   {path: "dashboard/events/create", component: CreateEventComponent},
   {path: "dashboard/events/update-event/:id", component: UpdateEventComponent},
