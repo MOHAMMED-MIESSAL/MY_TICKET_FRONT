@@ -1,3 +1,8 @@
+# EventifyFront - Frontend for Eventify
+This branch contains the frontend for the Eventify project. The frontend is built using Angular and is responsible for the user interface of the application. The frontend communicates with the backend using RESTful APIs.
+VERSION: 1.0.0
+
+
 # EventifyFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
