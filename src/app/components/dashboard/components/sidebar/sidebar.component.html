@@ -21,6 +21,7 @@
     </ul>
     <!-- Sidebar links -->
     <ul>
+
       <li class="relative px-6 py-3">
         <a
           class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-red-500"
@@ -33,10 +34,10 @@
           <span class="ml-4">Users</span>
         </a>
       </li>
-      <!-- Other menu items (Cards, Charts, Buttons, Modals, Tables) - Structure repeated -->
+
       <li class="relative px-6 py-3">
         <a
-          class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+          class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-red-500"
           routerLink="/dashboard/categories">
           <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -47,9 +48,10 @@
           <span class="ml-4">Category</span>
         </a>
       </li>
+
       <li class="relative px-6 py-3">
         <a
-          class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+          class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-red-500"
           routerLink="/dashboard/events">
           <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -59,9 +61,11 @@
           <span class="ml-4">Events</span>
         </a>
       </li>
+
+      <!--
       <li class="relative px-6 py-3">
         <a
-          class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+          class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-red-500"
           routerLink="/dashboard/reservations">
           <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -72,6 +76,7 @@
           <span class="ml-4">Reservations</span>
         </a>
       </li>
+
       <li class="relative px-6 py-3">
         <a
           class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -85,6 +90,7 @@
           <span class="ml-4">Modals</span>
         </a>
       </li>
+
       <li class="relative px-6 py-3">
         <a
           class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -96,6 +102,7 @@
           <span class="ml-4">Tables</span>
         </a>
       </li>
+
       <li class="relative px-6 py-3">
         <button
           class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -140,10 +147,11 @@
           </li>
         </ul>
       </li>
+      -->
     </ul>
     <div class="px-6 my-6">
       <button (click)="logout()" *ngIf="isLoggedIn"
-        class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red">
+              class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red">
         Logout
         <span class="ml-2" aria-hidden="true">+</span>
       </button>
@@ -167,15 +175,14 @@
   (click)="$event.stopPropagation()"
   (keydown.escape)="closeSideMenu()">
   <div class="py-4 text-gray-500 dark:text-gray-400">
-    <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" routerLink="#">
-      Windmill
-    </a>
+    <img class="mx-auto h-10 w-auto" src="assets/images/Logo.png" alt="Logo">
+
     <ul class="mt-6">
       <li class="relative px-6 py-3">
         <span class="absolute inset-y-0 left-0 w-1 bg-red-600 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>
         <a
-          class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-          routerLink="index.html">
+          class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-red-500"
+          routerLink="/dashboard">
           <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
             <path
@@ -185,10 +192,26 @@
           <span class="ml-4">Dashboard</span>
         </a>
       </li>
+    </ul>
+
+    <ul class="mt-6">
       <!-- Other menu items (Cards, Charts, Buttons, Modals, Tables) - Structure repeated -->
       <li class="relative px-6 py-3">
         <a
-          class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+          class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-red-500"
+          routerLink="/dashboard/users">
+          <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+               stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+          </svg>
+          <span class="ml-4">Users</span>
+        </a>
+      </li>
+
+      <li class="relative px-6 py-3">
+        <a
+          class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-red-500"
           routerLink="/dashboard/categories">
           <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -199,9 +222,10 @@
           <span class="ml-4">Category</span>
         </a>
       </li>
+
       <li class="relative px-6 py-3">
         <a
-          class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+          class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-red-500"
           routerLink="/dashboard/events">
           <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -211,19 +235,8 @@
           <span class="ml-4">Events</span>
         </a>
       </li>
-      <li class="relative px-6 py-3">
-        <a
-          class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-          routerLink="/dashboard/reservations">
-          <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-               stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-            <path
-              d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122">
-            </path>
-          </svg>
-          <span class="ml-4">Reservations</span>
-        </a>
-      </li>
+
+      <!--
       <li class="relative px-6 py-3">
         <a
           class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -237,6 +250,7 @@
           <span class="ml-4">Modals</span>
         </a>
       </li>
+
       <li class="relative px-6 py-3">
         <a
           class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -248,6 +262,7 @@
           <span class="ml-4">Tables</span>
         </a>
       </li>
+
       <li class="relative px-6 py-3">
         <button
           class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -292,7 +307,15 @@
           </li>
         </ul>
       </li>
+      -->
     </ul>
+    <div class="px-6 my-6">
+      <button (click)="logout()" *ngIf="isLoggedIn"
+              class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red">
+        Logout
+        <span class="ml-2" aria-hidden="true">+</span>
+      </button>
+    </div>
   </div>
 </aside>
 
