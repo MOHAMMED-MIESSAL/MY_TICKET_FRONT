@@ -105,4 +105,22 @@ export class EventService {
 
   }
 
+  createEvent(event: Event): Observable<Event> {
+    const token = localStorage.getItem('token');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    };
+
+    return this.http.post<any>(this.apiUrl, event, httpOptions)
+      .pipe(
+        catchError(error => {
+          console.error('Create event error:', error);
+          return throwError(() => error);
+        })
+      );
+  }
+
 }

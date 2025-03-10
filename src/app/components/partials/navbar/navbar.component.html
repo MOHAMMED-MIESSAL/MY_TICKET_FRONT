@@ -76,6 +76,9 @@
             <a routerLink="/my-events" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600">
               My Events
             </a>
+            <a routerLink="/dashboard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600">
+              Dashboard
+            </a>
             <div class="border-t border-gray-100"></div>
             <button (click)="logout()" class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">
               Logout
@@ -191,6 +194,7 @@
             My Events
           </div>
         </a>
+
       </div>
 
       <!-- Mobile Action Buttons -->
@@ -205,6 +209,7 @@
              class="block w-full text-center px-4 py-2.5 bg-gradient-to-r from-red-600 to-red-500 rounded-lg text-white font-medium hover:from-red-700 hover:to-red-600 transition-colors">
             Register
           </a>
+
         </div>
 
         <div *ngIf="isLoggedIn" class="px-3">

@@ -7,6 +7,7 @@ import {NgForOf, NgIf} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterLink} from "@angular/router";
 import {JwtPayload, jwtDecode} from 'jwt-decode';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-events',
@@ -37,10 +38,10 @@ export class EventsComponent implements OnInit {
   pageSizeOptions = [5, 10, 15, 20];
 
 
-  constructor(private eventService: EventService) {
+  constructor(private eventService: EventService, private router: Router) {
   }
 
-
+  // Main method to fetch events when the component is initialized
   ngOnInit(): void {
     const token = localStorage.getItem('token');
     if (token) {
@@ -53,8 +54,10 @@ export class EventsComponent implements OnInit {
           console.log('User id:', this.userId);
           console.log('User role:', this.userRole);
           this.loadEventsByUser(this.userId, this.currentPage, this.pageSize);
-        } else {
+        } else if (this.userRole === 'ADMIN' || this.userRole === 'SUPER_ADMIN') {
           this.loadEvents(this.currentPage, this.pageSize);
+        } else {
+          this.router.navigate(['/']);
         }
       } catch (error) {
         console.error('Erreur lors du décodage du token :', error);
@@ -114,61 +117,42 @@ export class EventsComponent implements OnInit {
   }
 
 
-    /*
-   Methods to navigate through pages of categories
-   */
+  /*
+ Methods to navigate through pages of categories
+ */
 
-    goToPreviousPage()
-  :
-    void {
-      if(this.currentPage > 0
-  )
-    {
+  goToPreviousPage(): void {
+    if (this.currentPage > 0
+    ) {
       this.currentPage--;
       this.loadEvents(this.currentPage, this.pageSize);
     }
   }
 
-    goToNextPage()
-  :
-    void {
-      if(this.currentPage < this.totalPages - 1
-  )
-    {
+  goToNextPage(): void {
+    if (this.currentPage < this.totalPages - 1
+    ) {
       this.currentPage++;
       this.loadEvents(this.currentPage, this.pageSize);
     }
   }
 
-    changePage(page
-  :
-    number
-  ):
-    void {
-      if(page !== this.currentPage
-  )
-    {
+  changePage(page: number): void {
+    if (page !== this.currentPage
+    ) {
       this.currentPage = page;
       this.loadEvents(this.currentPage, this.pageSize);
     }
   }
 
-    onPageSizeChange(size
-  :
-    number
-  )
-    {
-      this.pageSize = size;
-      this.currentPage = 0;
-      this.loadEvents(this.currentPage, this.pageSize);
-    }
-
-    get
-    pages()
-  :
-    number[]
-    {
-      return Array.from({length: this.totalPages}, (_, i) => i);
-    }
-
+  onPageSizeChange(size: number) {
+    this.pageSize = size;
+    this.currentPage = 0;
+    this.loadEvents(this.currentPage, this.pageSize);
   }
+
+  get pages(): number[] {
+    return Array.from({length: this.totalPages}, (_, i) => i);
+  }
+
+}

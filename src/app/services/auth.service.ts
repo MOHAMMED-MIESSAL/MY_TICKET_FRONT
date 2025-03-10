@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { User } from '../models/user.model';
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class AuthService {
 
   private apiUrl = 'http://localhost:8081/api/v1/auth';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient , private router: Router) {}
 
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -40,6 +41,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
 
   // Check if the user is logged in
