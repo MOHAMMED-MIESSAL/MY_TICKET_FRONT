@@ -65,7 +65,7 @@ export class CreateEventComponent implements OnInit {
 
   loadCategories() {
     this.categoryService.getAllCategories().subscribe({
-      next: (response) => this.categories = response.content, // Extraire `content`
+      next: (response) => this.categories = response.content,
       error: (err) => console.error('Erreur lors de la récupération des catégories', err)
     });
   }
@@ -82,8 +82,8 @@ export class CreateEventComponent implements OnInit {
     this.eventService.createEvent(eventData).subscribe({
       next: () => this.router.navigate(['/dashboard/events']),
       error: (err) => {
-        console.error('Erreur lors de la création de l\'événement', err);
-        this.errorMessage = 'Une erreur s\'est produite lors de la création de l\'événement.';
+        console.error('Error while the creation of the event ', err);
+        this.errorMessage = 'Error while the creation of the event .';
       }
     });
   }

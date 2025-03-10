@@ -51,7 +51,7 @@ export class UpdateStatusUserComponent implements OnInit {
         });
       },
       error: () => {
-        this.errorMessage = "Impossible de récupérer les informations de l'utilisateur.";
+        this.errorMessage = "Impossible to load the user data.";
       }
     });
   }
@@ -65,7 +65,7 @@ export class UpdateStatusUserComponent implements OnInit {
     }
 
     if (this.requestForm.invalid) {
-      this.errorMessage = "Veuillez remplir correctement le formulaire.";
+      this.errorMessage = "Please fill in all the required fields.";
       return;
     }
 
@@ -77,7 +77,7 @@ export class UpdateStatusUserComponent implements OnInit {
         this.router.navigate(['/dashboard/users']);
       },
       error: (error) => {
-        this.errorMessage = error.error?.message || "Une erreur s'est produite lors de la mise à jour.";
+        this.errorMessage = error.error?.message || "An error occurred while updating the user status.";
       }
     });
   }

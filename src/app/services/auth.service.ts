@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { User } from '../models/user.model';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import {catchError} from 'rxjs/operators';
+import {User} from '../models/user.model';
 import {Router} from "@angular/router";
 
 @Injectable({
@@ -12,11 +12,12 @@ export class AuthService {
 
   private apiUrl = 'http://localhost:8081/api/v1/auth';
 
-  constructor(private http: HttpClient , private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+  }
 
   private httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    headers: new HttpHeaders({'Content-Type': 'application/json'}),
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
   };
 
   register(user: User): Observable<any> {
@@ -30,7 +31,7 @@ export class AuthService {
   }
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, { email, password }, this.httpOptions)
+    return this.http.post<any>(`${this.apiUrl}/login`, {email, password}, this.httpOptions)
       .pipe(
         catchError(error => {
           console.error('Login error:', error);

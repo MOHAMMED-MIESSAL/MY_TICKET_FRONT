@@ -21,13 +21,13 @@ export class CategoryService {
     totalPages: number  }> {
     const token = localStorage.getItem('token');
 
-    // Vérifier si le token est présent et créer les en-têtes
+    // Verify if token is present
     const httpHeaders = token ?
       new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`  // Ajout du token dans les en-têtes
       })
-      : new HttpHeaders({'Content-Type': 'application/json'});  // Sans token si non présent
+      : new HttpHeaders({'Content-Type': 'application/json'});
 
     const url = `${this.apiUrl}?page=${page}&size=${size}`;
 

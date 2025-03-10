@@ -33,19 +33,19 @@ export class UpdateCategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.categoryId = this.route.snapshot.paramMap.get('id')!; // Garder l'id en string
+    this.categoryId = this.route.snapshot.paramMap.get('id')!; // Get the id from the URL
 
     this.requestForm = this.fb.group({
       name: ['', Validators.required]
     });
 
-    // Charger la catégorie existante
+    //  Get the category by id
     this.categoryService.getCategoryById(this.categoryId).subscribe(
       (category) => {
         this.requestForm.patchValue({name: category.name});
       },
       () => {
-        this.errorMessage = 'Erreur lors du chargement de la catégorie';
+        this.errorMessage = 'Error while fetching the category';
       }
     );
   }
@@ -68,7 +68,7 @@ export class UpdateCategoryComponent implements OnInit {
             this.errorMessage = error.error;
           }
         } else {
-          this.errorMessage = "Une erreur inconnue est survenue.";
+          this.errorMessage = "Error while updating the category";
         }
       }
     });

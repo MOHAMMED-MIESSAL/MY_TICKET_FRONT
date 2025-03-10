@@ -28,15 +28,9 @@ export class CreateCategoryComponent {
   }
 
   createCategory() {
-    const token = localStorage.getItem('token');
-
-    if (!token) {
-      this.router.navigate(['/login']);
-      return;
-    }
 
     if (this.requestForm.invalid) {
-      this.errorMessage = "Veuillez remplir correctement le formulaire.";
+      this.errorMessage = "Please fill out the form correctly.";
       return;
     }
 
@@ -50,7 +44,7 @@ export class CreateCategoryComponent {
             this.errorMessage = error.error;
           }
         } else {
-          this.errorMessage = "Une erreur inconnue est survenue.";
+          this.errorMessage = "An unknown error has occurred.";
         }
       }
     });

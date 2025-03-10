@@ -50,7 +50,7 @@ export class CreateUserComponent {
     }
 
     if (this.requestForm.invalid) {
-      this.errorMessage = "Veuillez remplir correctement le formulaire.";
+      this.errorMessage = "Please fill all the fields .";
       return;
     }
 
@@ -64,7 +64,7 @@ export class CreateUserComponent {
             this.errorMessage = error.error;
           }
         } else {
-          this.errorMessage = "Une erreur inconnue est survenue.";
+          this.errorMessage = "An error occurred while creating the user.";
         }
       }
     });

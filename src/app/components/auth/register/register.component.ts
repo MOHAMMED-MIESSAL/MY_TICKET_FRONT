@@ -45,9 +45,9 @@ export class RegisterComponent {
             error => {
                 console.error('Registration error:', error);
 
-                // Vérifier si le backend renvoie un message d'erreur
+                // Check if the error is a string or an object
                 if (error.error && typeof error.error === 'string') {
-                    this.errorMessage = error.error; // Utiliser le message renvoyé par le backend
+                    this.errorMessage = error.error; // If it's a string, show it
                 } else {
                     this.errorMessage = "An error occurred while registering the user.";
                 }
