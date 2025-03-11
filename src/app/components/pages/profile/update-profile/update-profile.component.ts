@@ -68,15 +68,14 @@ export class UpdateProfileComponent implements OnInit {
     let updateData = this.requestForm.value;
 
 
-    if (!updateData.password) {
-      delete updateData.password;
-    }
-
+    // Ne pas envoyer le rôle si l'utilisateur n'a pas changé
     updateData.role = this.userData.role;
 
+    // Effectuer la mise à jour de l'utilisateur
     this.userService.updateUser(this.userId, updateData).subscribe({
       next: () => {
         console.log('Profil mis à jour avec succès.');
+        // Rediriger ou afficher un message de succès
       },
       error: (error) => {
         this.errorMessage = "Erreur lors de la mise à jour du profil.";
@@ -86,7 +85,6 @@ export class UpdateProfileComponent implements OnInit {
 
     this.router.navigate(['/profile']);
   }
-
 
 
 }

@@ -16,11 +16,13 @@ import {UpdateEventComponent} from "./components/dashboard/pages/events/update-e
 import {UpdateStatusUserComponent} from "./components/dashboard/pages/user/update-status-user/update-status-user.component";
 import {ProfileComponent} from "./components/pages/profile/profile.component";
 import {UpdateProfileComponent} from "./components/pages/profile/update-profile/update-profile.component";
+import {ContactComponent} from "./components/partials/contact/contact.component";
 
 export const routes: Routes = [
   {path: "", component: HomeComponent, pathMatch: "full"},
   {path: "home", component: HomeComponent},
   {path: "login", component: LoginComponent},
+  {path:"contact", component: ContactComponent},
   {path: "register", component: RegisterComponent},
   {path: "events", component: EventListComponent},
   {path: "dashboard", component: MainComponent},

@@ -10,7 +10,7 @@
 
       <!-- Bannière de profil -->
       <div class="rounded-lg h-64 overflow-hidden shadow-lg">
-        <img alt="content" class="object-cover object-center h-full w-full" src="assets/images/2021-1.jpg">
+        <img alt="content" class="object-cover object-center h-full w-full" src="assets/images/events-background-1.jpg">
       </div>
 
       <!-- Section des informations utilisateur -->
@@ -23,8 +23,8 @@
           <div *ngIf="user; else loading" class="flex flex-col items-center text-center justify-center">
             <h2 class="font-medium title-font mt-4 text-gray-900 text-2xl">{{ user.username }}</h2>
             <div class="w-12 h-1 bg-red-500 rounded mt-2 mb-4"></div>
-            <p class="text-base text-gray-600">Hi there, I'm {{ user.username }}.</p>
-            <!-- <p class="text-sm text-gray-500 mt-2">Web Developer | Designer</p> -->
+            <p class="text-base text-gray-600">Hi there, I'm {{ user.username }} .</p>
+            <p class="text-sm text-gray-500 mt-2">Role | {{ user.role }}</p>
           </div>
         </div>
 
@@ -33,13 +33,14 @@
           class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
 
           <!-- Informations de base -->
-          <!--
-         <h3 class="text-xl font-semibold text-gray-900 mb-4">About Me</h3>
-         <p class="text-gray-600 leading-relaxed">
-           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-           dolore magna aliqua.
-         </p>
-        -->
+
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">About Me</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Welcome to your personal space! Here, you can manage your reservations, track your events,
+            and access all your information in one place.
+          </p>
+
+
 
           <div class="px-6 py-4  border-t border-gray-100 flex flex-col gap-2">
             <button
@@ -52,7 +53,7 @@
               My Reservations
             </button>
 
-            <button [routerLink]="['/profile/' , user.id]"
+            <button [routerLink]="['/profile/',user.id]"
                     class="w-full bg-white text-gray-700 py-2.5 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors font-medium flex items-center justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24"
                    stroke="currentColor">

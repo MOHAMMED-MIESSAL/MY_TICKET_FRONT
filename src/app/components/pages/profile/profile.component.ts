@@ -16,7 +16,7 @@ import {RouterLink} from "@angular/router";
 export class ProfileComponent implements OnInit {
 
   userId: string | null = null;
-  user: any;
+  user: any = {};
 
   constructor(private userService: UserService) {}
 
