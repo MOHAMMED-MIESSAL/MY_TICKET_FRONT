@@ -143,4 +143,24 @@ export class UserService {
       );
   }
 
+  updateUser(id: string, userData: any): Observable<any> {
+    const token = localStorage.getItem('token');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    };
+
+    return this.http.put<any>(`${this.apiUrl}/${id}`, userData, httpOptions)
+      .pipe(
+        catchError(error => {
+          console.error('Error while updating user :', error);
+          if (error.status === 401) {
+            return throwError(() => new Error('Token expired or invalid. Please reconnect.'));
+          }
+          return throwError(() => new Error('An error occurred while updating the user.'));
+        })
+      );
+  }
 }

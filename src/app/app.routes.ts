@@ -14,6 +14,8 @@ import {CreateUserComponent} from "./components/dashboard/pages/user/create-user
 import {CreateEventComponent} from "./components/dashboard/pages/events/create-event/create-event.component";
 import {UpdateEventComponent} from "./components/dashboard/pages/events/update-event/update-event.component";
 import {UpdateStatusUserComponent} from "./components/dashboard/pages/user/update-status-user/update-status-user.component";
+import {ProfileComponent} from "./components/pages/profile/profile.component";
+import {UpdateProfileComponent} from "./components/pages/profile/update-profile/update-profile.component";
 
 export const routes: Routes = [
   {path: "", component: HomeComponent, pathMatch: "full"},
@@ -31,5 +33,7 @@ export const routes: Routes = [
   {path: "dashboard/events", component: EventsComponent},
   {path: "dashboard/events/create", component: CreateEventComponent},
   {path: "dashboard/events/update-event/:id", component: UpdateEventComponent},
-  {path: "dashboard/reservations", component: ReservationsComponent}
+  {path: "dashboard/reservations", component: ReservationsComponent},
+  {path:"profile" , component: ProfileComponent},
+  {path:"profile/:id" , component: UpdateProfileComponent}
 ];
