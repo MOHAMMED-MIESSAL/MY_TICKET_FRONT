@@ -1,0 +1,187 @@
+<!-- Modal de détails de l'événement -->
+<div *ngIf="showModal"
+     class="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center p-4">
+  <div class="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+    <!-- Bouton de fermeture -->
+    <div class="sticky top-0 z-10 bg-white pt-4 px-4 flex justify-end">
+      <button (click)="closeEventModal()"
+              class="text-gray-400 hover:text-red-500 transition-colors duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+             stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Contenu du modal -->
+    <div class="p-4 sm:p-6 md:p-8">
+      <!-- En-tête du modal -->
+      <div class="relative mb-6">
+
+        <img
+          src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+          alt="Festival de musique"
+          class="w-full h-64 md:h-80 object-cover rounded-xl"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70 rounded-xl"></div>
+        <div
+          class="absolute bottom-4 left-4 bg-gradient-to-r from-red-600 to-red-500 shadow-md shadow-red-400/30 text-white px-4 py-2 rounded-full text-sm font-semibold tracking-wider uppercase">
+          Festival
+        </div>
+        <div
+          class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-red-600 px-3 py-1 rounded-full text-sm font-bold">
+          <i class="fas fa-calendar-alt mr-1"></i> 15-17 Juillet 2025
+        </div>
+      </div>
+
+      <!-- Titre et étiquette -->
+      <div class="flex justify-between items-start mb-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Festival Électro Summer</h2>
+        <span class="bg-red-50 text-red-600 text-xs font-medium px-2 py-1 rounded-lg whitespace-nowrap ml-2">Populaire</span>
+      </div>
+
+      <!-- Informations détaillées -->
+      <div class="space-y-6 mb-8">
+        <!-- Description complète -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">À propos de l'événement</h3>
+          <p class="text-gray-600">
+            Une expérience musicale unique avec les meilleurs DJs internationaux. Le Festival Électro Summer est
+            l'événement
+            électro incontournable de l'été 2025. Pendant trois jours, plongez dans une ambiance exceptionnelle
+            avec une
+            programmation exclusive, des installations artistiques surprenantes et une expérience immersive
+            inoubliable.
+          </p>
+        </div>
+
+        <!-- Informations principales -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-xl">
+          <div class="flex items-center text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="h-5 w-5 mr-3 text-red-500 flex-shrink-0" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <div>
+              <p class="text-xs text-gray-500">Date</p>
+              <p class="font-medium">15-17 Juillet 2025</p>
+            </div>
+          </div>
+          <div class="flex items-center text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="h-5 w-5 mr-3 text-red-500 flex-shrink-0" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <div>
+              <p class="text-xs text-gray-500">Horaires</p>
+              <p class="font-medium">14h00 - 02h00</p>
+            </div>
+          </div>
+          <div class="flex items-center text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="h-5 w-5 mr-3 text-red-500 flex-shrink-0" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <div>
+              <p class="text-xs text-gray-500">Lieu</p>
+              <p class="font-medium">Parc des Expositions, Paris</p>
+            </div>
+          </div>
+          <div class="flex items-center text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="h-5 w-5 mr-3 text-red-500 flex-shrink-0" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            <div>
+              <p class="text-xs text-gray-500">Participants</p>
+              <p class="font-medium">50,000+ attendus</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Programme -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Programme</h3>
+          <div class="space-y-3">
+            <div class="bg-white border border-gray-100 rounded-lg p-3 shadow-sm">
+              <div class="flex justify-between items-center mb-1">
+                <span class="font-medium text-gray-800">Jour 1 - 15 Juillet</span>
+                <span class="text-xs text-red-500 font-medium">14h00 - 02h00</span>
+              </div>
+              <p class="text-sm text-gray-600">David Guetta, Martin Garrix, Armin van Buuren, Charlotte de
+                Witte</p>
+            </div>
+            <div class="bg-white border border-gray-100 rounded-lg p-3 shadow-sm">
+              <div class="flex justify-between items-center mb-1">
+                <span class="font-medium text-gray-800">Jour 2 - 16 Juillet</span>
+                <span class="text-xs text-red-500 font-medium">14h00 - 02h00</span>
+              </div>
+              <p class="text-sm text-gray-600">Tiësto, Hardwell, Amelie Lens, Peggy Gou</p>
+            </div>
+            <div class="bg-white border border-gray-100 rounded-lg p-3 shadow-sm">
+              <div class="flex justify-between items-center mb-1">
+                <span class="font-medium text-gray-800">Jour 3 - 17 Juillet</span>
+                <span class="text-xs text-red-500 font-medium">14h00 - 02h00</span>
+              </div>
+              <p class="text-sm text-gray-600">Carl Cox, Dimitri Vegas & Like Mike, Nina Kraviz, Fisher</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarifs -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Tarifs</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div
+              class="bg-white border border-gray-200 rounded-lg p-3 text-center hover:border-red-200 transition-colors">
+              <h4 class="font-semibold text-gray-800">Pass 1 jour</h4>
+              <p class="text-red-600 text-xl font-bold mt-1 mb-2">89€</p>
+              <p class="text-xs text-gray-500">Accès à toutes les scènes</p>
+            </div>
+            <div
+              class="bg-white border border-gray-200 rounded-lg p-3 text-center hover:border-red-200 transition-colors">
+              <h4 class="font-semibold text-gray-800">Pass 3 jours</h4>
+              <p class="text-red-600 text-xl font-bold mt-1 mb-2">199€</p>
+              <p class="text-xs text-gray-500">Accès à toutes les scènes</p>
+            </div>
+            <div
+              class="bg-white border border-gray-200 rounded-lg p-3 text-center hover:border-red-200 transition-colors">
+              <h4 class="font-semibold text-gray-800">Pass VIP</h4>
+              <p class="text-red-600 text-xl font-bold mt-1 mb-2">349€</p>
+              <p class="text-xs text-gray-500">Accès VIP + boissons incluses</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statut et bouton -->
+      <div class="border-t border-gray-100 pt-6 space-y-4">
+        <div class="flex justify-between items-center text-sm">
+          <div class="flex items-center">
+            <div class="h-3 w-3 rounded-full bg-green-500 mr-2"></div>
+            <span class="text-green-600 font-medium">Places disponibles</span>
+          </div>
+          <span class="text-gray-500 text-sm">
+            <i class="fas fa-chair mr-1"></i> 1243 places restantes
+          </span>
+        </div>
+
+        <button
+          class="w-full block text-center bg-gradient-to-r from-red-600 to-red-500 text-white py-3 md:py-4 rounded-full shadow-md shadow-red-500/30 hover:shadow-lg hover:shadow-red-500/40 transition-all duration-300 font-semibold text-base">
+          Réserver maintenant
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
