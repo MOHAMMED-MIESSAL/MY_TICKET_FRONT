@@ -28,7 +28,7 @@ export class EventListComponent implements OnInit {
   events: Event[] = [];
   currentPage = 0;
   totalPages = 0;
-  pageSize = 10;
+  pageSize = 9;
   pageSizeOptions = [5, 10, 15, 20];
   showModal = false;
   isModalOpen = false;

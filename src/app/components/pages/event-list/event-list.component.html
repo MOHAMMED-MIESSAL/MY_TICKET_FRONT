@@ -548,7 +548,7 @@
             <div class="pt-2">
               <button (click)="openEventModal(event)"
                       class="w-full block text-center bg-gradient-to-r from-red-600 to-red-500 text-white py-2.5 md:py-3 rounded-full shadow-md shadow-red-500/30 hover:shadow-lg hover:shadow-red-500/40 transition-all duration-300 font-semibold transform hover:translate-y-px text-sm md:text-base">
-                Réserver maintenant
+                View Event Details
               </button>
             </div>
           </div>
@@ -558,6 +558,65 @@
         <app-event-modal [showModal]="isModalOpen" (closeModalEvent)="isModalOpen = false" [event]="selectedEvent" #eventModal></app-event-modal>
 
 
+      </div>
+
+      <!-- Pagination -->
+      <div
+        class="grid px-4 py-3 mt-3  text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
+        <!-- Affichage des éléments en cours -->
+        <span class="flex items-center col-span-3">
+                            Showing {{ (currentPage * pageSize) + 1 }}
+          -{{ Math.min((currentPage + 1) * pageSize, totalElements) }}
+          of {{ totalElements }}
+                  </span>
+
+        <span class="col-span-2"></span>
+
+        <!-- Pagination -->
+        <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
+      <nav aria-label="Table navigation">
+        <ul class="inline-flex items-center">
+          <!-- Bouton "Précédent" -->
+          <li>
+            <button class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-red"
+                    [disabled]="currentPage === 0"
+                    (click)="goToPreviousPage()"
+                    aria-label="Previous">
+              <svg aria-hidden="true" class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                  clip-rule="evenodd" fill-rule="evenodd"></path>
+              </svg>
+            </button>
+          </li>
+
+          <!-- Affichage des pages -->
+                  <li *ngFor="let i of pages">
+                      <button class="px-3 py-1 rounded-md"
+                              [class.bg-red-600]="currentPage === i"
+                              [class.text-white]="currentPage === i"
+                              (click)="changePage(i)">
+                                          {{ i + 1 }}
+                      </button>
+                    </li>
+
+
+          <!-- Bouton "Suivant" -->
+          <li>
+            <button class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-red"
+                    [disabled]="currentPage === totalPages - 1"
+                    (click)="goToNextPage()"
+                    aria-label="Next">
+              <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 20 20">
+                <path
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clip-rule="evenodd" fill-rule="evenodd"></path>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </span>
       </div>
 
     </div>
