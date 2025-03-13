@@ -32,7 +32,7 @@ export class EventListComponent implements OnInit {
   pageSizeOptions = [5, 10, 15, 20];
   showModal = false;
   isModalOpen = false;
-  selectedEvent: Event | null = null;
+  selectedEvent: any = null;
 
 
   constructor(private eventService: EventService, private router: Router) {
@@ -88,12 +88,13 @@ export class EventListComponent implements OnInit {
     this.showModal = false;
   }
 
-  openEventModal() {
+  openEventModal(event: any) {
     this.openModal();
     const modalElement = document.getElementById('eventModal');
     if (modalElement) {
       modalElement.classList.remove('hidden');
     }
+    this.selectedEvent = event;
   }
 
   setupModalHandlers() {

@@ -546,7 +546,7 @@
 
             <!-- Bouton avec effet de survol amélioré -->
             <div class="pt-2">
-              <button (click)="openEventModal()"
+              <button (click)="openEventModal(event)"
                       class="w-full block text-center bg-gradient-to-r from-red-600 to-red-500 text-white py-2.5 md:py-3 rounded-full shadow-md shadow-red-500/30 hover:shadow-lg hover:shadow-red-500/40 transition-all duration-300 font-semibold transform hover:translate-y-px text-sm md:text-base">
                 Réserver maintenant
               </button>
@@ -555,7 +555,7 @@
         </div>
 
         <!-- Modal de détails -->
-        <app-event-modal [showModal]="isModalOpen" (closeModalEvent)="isModalOpen = false"></app-event-modal>
+        <app-event-modal [showModal]="isModalOpen" (closeModalEvent)="isModalOpen = false" [event]="selectedEvent" #eventModal></app-event-modal>
 
 
       </div>

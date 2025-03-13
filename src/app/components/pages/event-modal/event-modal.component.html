@@ -13,6 +13,7 @@
       </button>
     </div>
 
+
     <!-- Contenu du modal -->
     <div class="p-4 sm:p-6 md:p-8">
       <!-- En-tête du modal -->
@@ -27,18 +28,19 @@
           class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70 rounded-xl"></div>
         <div
           class="absolute bottom-4 left-4 bg-gradient-to-r from-red-600 to-red-500 shadow-md shadow-red-400/30 text-white px-4 py-2 rounded-full text-sm font-semibold tracking-wider uppercase">
-          Festival
+          {{ event.category.name }}
         </div>
         <div
           class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-red-600 px-3 py-1 rounded-full text-sm font-bold">
-          <i class="fas fa-calendar-alt mr-1"></i> 15-17 Juillet 2025
+          <i class="fas fa-calendar-alt mr-1"></i>    {{ formatEventDate(event.date) }}
         </div>
       </div>
 
       <!-- Titre et étiquette -->
       <div class="flex justify-between items-start mb-4">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Festival Électro Summer</h2>
-        <span class="bg-red-50 text-red-600 text-xs font-medium px-2 py-1 rounded-lg whitespace-nowrap ml-2">Populaire</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900"> {{ event.title }}</h2>
+        <span
+          class="bg-red-50 text-red-600 text-xs font-medium px-2 py-1 rounded-lg whitespace-nowrap ml-2">Populaire</span>
       </div>
 
       <!-- Informations détaillées -->
@@ -47,12 +49,7 @@
         <div>
           <h3 class="text-lg font-semibold text-gray-800 mb-2">À propos de l'événement</h3>
           <p class="text-gray-600">
-            Une expérience musicale unique avec les meilleurs DJs internationaux. Le Festival Électro Summer est
-            l'événement
-            électro incontournable de l'été 2025. Pendant trois jours, plongez dans une ambiance exceptionnelle
-            avec une
-            programmation exclusive, des installations artistiques surprenantes et une expérience immersive
-            inoubliable.
+            {{ event.description }} .
           </p>
         </div>
 
@@ -67,7 +64,7 @@
             </svg>
             <div>
               <p class="text-xs text-gray-500">Date</p>
-              <p class="font-medium">15-17 Juillet 2025</p>
+              <p class="font-medium">{{ formatDateWithYear(event.date) }}</p>
             </div>
           </div>
           <div class="flex items-center text-gray-600">
@@ -93,7 +90,7 @@
             </svg>
             <div>
               <p class="text-xs text-gray-500">Lieu</p>
-              <p class="font-medium">Parc des Expositions, Paris</p>
+              <p class="font-medium">{{ event.location }}, {{ event.city }}</p>
             </div>
           </div>
           <div class="flex items-center text-gray-600">
@@ -105,12 +102,13 @@
             </svg>
             <div>
               <p class="text-xs text-gray-500">Participants</p>
-              <p class="font-medium">50,000+ attendus</p>
+              <p class="font-medium">{{ event.capacity }}+ attendus</p>
             </div>
           </div>
         </div>
 
         <!-- Programme -->
+        <!--
         <div>
           <h3 class="text-lg font-semibold text-gray-800 mb-2">Programme</h3>
           <div class="space-y-3">
@@ -138,17 +136,18 @@
             </div>
           </div>
         </div>
-
+        -->
         <!-- Tarifs -->
         <div>
           <h3 class="text-lg font-semibold text-gray-800 mb-2">Tarifs</h3>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div
               class="bg-white border border-gray-200 rounded-lg p-3 text-center hover:border-red-200 transition-colors">
-              <h4 class="font-semibold text-gray-800">Pass 1 jour</h4>
-              <p class="text-red-600 text-xl font-bold mt-1 mb-2">89€</p>
+            <!--  <h4 class="font-semibold text-gray-800">Pass 1 jour</h4> -->
+              <p class="text-red-600 text-xl font-bold mt-1 mb-2">{{ event.price }} €</p>
               <p class="text-xs text-gray-500">Accès à toutes les scènes</p>
             </div>
+            <!--
             <div
               class="bg-white border border-gray-200 rounded-lg p-3 text-center hover:border-red-200 transition-colors">
               <h4 class="font-semibold text-gray-800">Pass 3 jours</h4>
@@ -162,6 +161,7 @@
               <p class="text-xs text-gray-500">Accès VIP + boissons incluses</p>
             </div>
           </div>
+          -->
         </div>
       </div>
 
@@ -173,7 +173,7 @@
             <span class="text-green-600 font-medium">Places disponibles</span>
           </div>
           <span class="text-gray-500 text-sm">
-            <i class="fas fa-chair mr-1"></i> 1243 places restantes
+            <i class="fas fa-chair mr-1"></i> {{ event.available_seats  }} places restantes
           </span>
         </div>
 
