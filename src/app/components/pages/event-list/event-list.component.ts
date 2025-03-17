@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {NavbarComponent} from "../../partials/navbar/navbar.component";
 import {Router, RouterLink} from "@angular/router";
-import {DatePipe, NgClass, NgForOf} from "@angular/common";
+import {DatePipe, NgClass, NgForOf, NgIf} from "@angular/common";
 import {Event} from "../../../models/event.model";
 import {EventService} from "../../../services/event.service";
 import {EventModalComponent} from "../event-modal/event-modal.component";
+import {jwtDecode, JwtPayload} from "jwt-decode";
 
 @Component({
   selector: 'app-event-list',
@@ -15,7 +16,8 @@ import {EventModalComponent} from "../event-modal/event-modal.component";
     NgClass,
     NgForOf,
     DatePipe,
-    EventModalComponent
+    EventModalComponent,
+    NgIf
   ],
   templateUrl: './event-list.component.html',
   styleUrl: './event-list.component.css'
@@ -45,7 +47,7 @@ export class EventListComponent implements OnInit {
   }
 
 
-  openModal()   {
+  openModal() {
     this.isModalOpen = true;
   }
 

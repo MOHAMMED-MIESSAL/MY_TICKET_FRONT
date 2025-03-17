@@ -143,7 +143,7 @@
           <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div
               class="bg-white border border-gray-200 rounded-lg p-3 text-center hover:border-red-200 transition-colors">
-            <!--  <h4 class="font-semibold text-gray-800">Pass 1 jour</h4> -->
+              <!--  <h4 class="font-semibold text-gray-800">Pass 1 jour</h4> -->
               <p class="text-red-600 text-xl font-bold mt-1 mb-2">{{ event.price }} €</p>
               <p class="text-xs text-gray-500">Accès à toutes les scènes</p>
             </div>
@@ -162,25 +162,26 @@
             </div>
           </div>
           -->
-        </div>
-      </div>
-
-      <!-- Statut et bouton -->
-      <div class="border-t border-gray-100 pt-6 space-y-4">
-        <div class="flex justify-between items-center text-sm">
-          <div class="flex items-center">
-            <div class="h-3 w-3 rounded-full bg-green-500 mr-2"></div>
-            <span class="text-green-600 font-medium">Places disponibles</span>
           </div>
-          <span class="text-gray-500 text-sm">
-            <i class="fas fa-chair mr-1"></i> {{ event.available_seats  }} places restantes
-          </span>
         </div>
 
-        <button
-          class="w-full block text-center bg-gradient-to-r from-red-600 to-red-500 text-white py-3 md:py-4 rounded-full shadow-md shadow-red-500/30 hover:shadow-lg hover:shadow-red-500/40 transition-all duration-300 font-semibold text-base">
-          Réserver maintenant
-        </button>
+        <!-- Statut et bouton -->
+        <div class="border-t border-gray-100 pt-6 space-y-4" *ngIf="isLoggedIn">
+          <div class="flex justify-between items-center text-sm">
+            <div class="flex items-center">
+              <div class="h-3 w-3 rounded-full bg-green-500 mr-2"></div>
+              <span class="text-green-600 font-medium">Places disponibles</span>
+            </div>
+            <span class="text-gray-500 text-sm">
+            <i class="fas fa-chair mr-1"></i> {{ event.available_seats }} places restantes
+          </span>
+          </div>
+
+          <button   *ngIf="isLoggedIn && userRole === 'USER' " (click)="bookEvent()"
+                  class="w-full block text-center bg-gradient-to-r from-red-600 to-red-500 text-white py-3 md:py-4 rounded-full shadow-md shadow-red-500/30 hover:shadow-lg hover:shadow-red-500/40 transition-all duration-300 font-semibold text-base">
+            Book Event
+          </button>
+        </div>
       </div>
     </div>
   </div>
