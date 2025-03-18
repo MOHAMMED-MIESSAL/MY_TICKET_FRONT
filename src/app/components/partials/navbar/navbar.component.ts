@@ -3,6 +3,7 @@ import {AuthService} from '../../../services/auth.service';
 import {RouterLink} from "@angular/router";
 import {NgIf} from "@angular/common";
 import {Router} from "@angular/router";
+import {jwtDecode, JwtPayload} from "jwt-decode";
 
 
 @Component({
@@ -16,12 +17,23 @@ export class NavbarComponent implements OnInit {
   isMobileMenuOpen = false;
   isLoggedIn = false;
   isDropdownOpen = false;
+  userRole: string | null = null;
 
   constructor(private authService: AuthService, private router: Router) {
   }
 
   ngOnInit() {
     this.checkLoginStatus();
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const decodedToken: JwtPayload & { role?: string; userId?: string } = jwtDecode(token);
+        this.userRole = decodedToken.role || null;
+      }
+      catch (e) {
+        console.error('Error decoding token:', e);
+      }
+    }
   }
 
   checkLoginStatus() {

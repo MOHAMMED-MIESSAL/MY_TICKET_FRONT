@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {NgIf} from "@angular/common";
 import {RouterLink} from "@angular/router";
 import {AuthService} from "../../../../services/auth.service";
+import {jwtDecode, JwtPayload} from "jwt-decode";
 
 @Component({
   standalone: true,
@@ -17,6 +18,7 @@ export class SidebarComponent implements OnInit {
   isPagesMenuOpen = false;
   isSideMenuOpen = false;
   isLoggedIn = false;
+  userRole: string | null = null;
 
   constructor(private authService: AuthService) {
 
@@ -24,6 +26,16 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.checkLoginStatus();
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const decodedToken: JwtPayload & { role?: string; userId?: string } = jwtDecode(token);
+        this.userRole = decodedToken.role || null;
+      }
+      catch (e) {
+        console.error('Error decoding token:', e);
+      }
+    }
   }
 
   togglePagesMenu(): void {
