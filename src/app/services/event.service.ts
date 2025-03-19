@@ -53,6 +53,44 @@ export class EventService {
 
   }
 
+
+  getAllEvents2(page: number = 0, size: number = 10, title: string = ''): Observable<{
+    content: Event[],
+    totalElements: number,
+    totalPages: number
+  }> {
+    const token = localStorage.getItem('token');
+
+    const httpHeaders = token
+      ? new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+      : new HttpHeaders({'Content-Type': 'application/json'});
+
+    // Construire l'URL avec title optionnel
+    let url = `${this.apiUrl}?page=${page}&size=${size}`;
+    if (title) {
+      url = `${this.apiUrl}/search?title=${encodeURIComponent(title)}&page=${page}&size=${size}`;
+    }
+
+    return this.http.get<{
+      content: Event[],
+      totalElements: number,
+      totalPages: number
+    }>(url, {headers: httpHeaders})
+      .pipe(
+        catchError(error => {
+          console.error('Erreur lors de la récupération des événements :', error);
+          if (error.status === 401) {
+            return throwError(() => new Error('Token expiré ou non valide. Veuillez vous reconnecter.'));
+          }
+          return throwError(() => new Error('Une erreur s\'est produite lors de la récupération des événements.'));
+        })
+      );
+  }
+
+
   getEventsByUser(userId: string, page: number = 0, size: number = 10): Observable<{
     content: Event[],
     totalElements: number,

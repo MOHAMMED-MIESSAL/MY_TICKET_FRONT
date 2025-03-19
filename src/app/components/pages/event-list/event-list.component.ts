@@ -6,6 +6,7 @@ import {Event} from "../../../models/event.model";
 import {EventService} from "../../../services/event.service";
 import {EventModalComponent} from "../event-modal/event-modal.component";
 import {jwtDecode, JwtPayload} from "jwt-decode";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-event-list',
@@ -17,7 +18,8 @@ import {jwtDecode, JwtPayload} from "jwt-decode";
     NgForOf,
     DatePipe,
     EventModalComponent,
-    NgIf
+    NgIf,
+    FormsModule
   ],
   templateUrl: './event-list.component.html',
   styleUrl: './event-list.component.css'
@@ -28,6 +30,7 @@ export class EventListComponent implements OnInit {
 
   totalElements = 0;
   events: Event[] = [];
+  searchTerm: string = '';
   currentPage = 0;
   totalPages = 0;
   pageSize = 9;
@@ -51,8 +54,8 @@ export class EventListComponent implements OnInit {
     this.isModalOpen = true;
   }
 
-  loadEvents(page: number, size: number): void {
-    this.eventService.getAllEvents(page, size).subscribe({
+  loadEvents(page: number, size: number, searchTerm: string = ''): void {
+    this.eventService.getAllEvents2(page, size, searchTerm).subscribe({
       next: (data) => {
         this.events = data.content;
         this.totalElements = data.totalElements;
@@ -64,6 +67,24 @@ export class EventListComponent implements OnInit {
       }
     });
   }
+
+  // Fonction appelée lors du clic sur le bouton de recherche
+  onSearchClick(): void {
+    this.loadEvents(0, this.pageSize, this.searchTerm);
+  }
+
+  // Méthode pour réinitialiser la recherche
+  resetSearch(): void {
+    this.searchTerm = '';  // Réinitialiser le terme de recherche
+    this.loadEvents(0, this.pageSize);  // Recharger les événements avec les valeurs par défaut
+  }
+
+  /*
+  onSearchChange(): void {
+    this.loadEvents(0, this.pageSize, this.searchTerm);
+  }
+   */
+
 
   formatEventDate(startTimestamp: string): string {
     const options: Intl.DateTimeFormatOptions = {day: '2-digit', month: 'long'};
