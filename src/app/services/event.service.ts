@@ -195,4 +195,23 @@ export class EventService {
       );
   }
 
+  getLast3Events(): Observable<Event[]> {
+    return this.http.get<any>(`${this.apiUrl}/getLast3events`)
+      .pipe(
+        catchError(error => {
+          console.error('Get last 3 events error:', error);
+          return throwError(() => error);
+        })
+      );
+  }
+
+  getEventsByCategory(categoryId: string | null): Observable<Event[]> {
+    const url = categoryId
+      ? `${this.apiUrl}/getEventsByCategory?categoryId=${categoryId}`
+      : `${this.apiUrl}/getEventsByCategory`;
+
+    return this.http.get<Event[]>(url);
+  }
+
+
 }

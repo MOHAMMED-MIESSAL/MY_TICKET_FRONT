@@ -10,8 +10,8 @@
       <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
         <!-- En-tête de la sidebar avec fond dégradé -->
         <div class="bg-gradient-to-r from-red-600 to-red-500 px-6 py-5">
-          <h2 class="text-xl font-bold text-white">Filtres d'événements</h2>
-          <p class="text-white/80 text-sm mt-1">Affinez votre recherche</p>
+          <h2 class="text-xl font-bold text-white">Event Filter</h2>
+          <p class="text-white/80 text-sm mt-1">Refine your search</p>
         </div>
 
         <div class="p-6 space-y-6">
@@ -23,10 +23,10 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
               </svg>
-              Recherche
+              Search
             </h3>
             <div class="relative">
-              <input type="text"  [(ngModel)]="searchTerm" placeholder="Rechercher un événement..."
+              <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher un événement..."
                      class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 text-gray-700"/>
               <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-3.5 h-5 w-5 text-gray-400" fill="none"
                    viewBox="0 0 24 24" stroke="currentColor">
@@ -36,55 +36,39 @@
             </div>
           </div>
 
-          <!-- Categories Section avec design amélioré -->
           <div>
             <h3 class="text-base font-semibold text-gray-800 mb-3 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-red-500" fill="none" viewBox="0 0 24 24"
                    stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2m14 0V9a2 2 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 00-2-2h6a2 2 0 012 2v2M7 7h10"/>
               </svg>
               Catégories
             </h3>
             <div class="bg-gray-50 rounded-xl p-1">
               <div class="space-y-1">
+                <!-- Option "Tous" -->
                 <label class="flex items-center group cursor-pointer hover:bg-white p-2.5 rounded-lg transition-colors">
-                  <div class="relative flex items-center">
-                    <input type="radio" name="category" class="peer sr-only" value="all"/>
-                    <div
-                      class="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-red-500 peer-checked:border-[5px] transition-all"></div>
-                  </div>
+                  <input type="radio" name="category" (change)="filterEventsByCategory(null)" [checked]="selectedCategory === null" class="sr-only"/>
+                  <div class="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-red-500 peer-checked:border-[5px] transition-all"></div>
                   <span class="ml-3 text-gray-700 font-medium group-hover:text-red-600 transition-colors">Tous</span>
                 </label>
-                <label class="flex items-center group cursor-pointer hover:bg-white p-2.5 rounded-lg transition-colors">
-                  <div class="relative flex items-center">
-                    <input type="radio" name="category" class="peer sr-only" value="music"/>
-                    <div
-                      class="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-red-500 peer-checked:border-[5px] transition-all"></div>
-                  </div>
-                  <span class="ml-3 text-gray-700 font-medium group-hover:text-red-600 transition-colors">Musique</span>
-                </label>
-                <label class="flex items-center group cursor-pointer hover:bg-white p-2.5 rounded-lg transition-colors">
-                  <div class="relative flex items-center">
-                    <input type="radio" name="category" class="peer sr-only" value="sports"/>
-                    <div
-                      class="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-red-500 peer-checked:border-[5px] transition-all"></div>
-                  </div>
-                  <span class="ml-3 text-gray-700 font-medium group-hover:text-red-600 transition-colors">Sports</span>
-                </label>
-                <label class="flex items-center group cursor-pointer hover:bg-white p-2.5 rounded-lg transition-colors">
-                  <div class="relative flex items-center">
-                    <input type="radio" name="category" class="peer sr-only" value="art"/>
-                    <div
-                      class="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-red-500 peer-checked:border-[5px] transition-all"></div>
-                  </div>
-                  <span class="ml-3 text-gray-700 font-medium group-hover:text-red-600 transition-colors">Art</span>
+
+                <!-- Liste des catégories -->
+                <label class="flex items-center group cursor-pointer hover:bg-white p-2.5 rounded-lg transition-colors"
+                       *ngFor="let categorie of categories">
+                  <input type="radio" name="category" (change)="filterEventsByCategory(categorie.id)"
+                         [checked]="selectedCategory === categorie.id" class="sr-only"/>
+                  <div class="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-red-500 peer-checked:border-[5px] transition-all"></div>
+                  <span class="ml-3 text-gray-700 font-medium group-hover:text-red-600 transition-colors">{{ categorie.name }}</span>
                 </label>
               </div>
             </div>
           </div>
 
+
+
           <!-- Prix Section avec design amélioré -->
+          <!--
           <div>
             <h3 class="text-base font-semibold text-gray-800 mb-3 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-red-500" fill="none" viewBox="0 0 24 24"
@@ -126,6 +110,7 @@
               </div>
             </div>
           </div>
+          -->
 
           <!-- Filtre de Date avec design amélioré -->
           <div>
@@ -156,6 +141,7 @@
           </div>
 
           <!-- Nouvelle section: Options avancées -->
+          <!--
           <div>
             <h3 class="text-base font-semibold text-gray-800 mb-3 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-red-500" fill="none" viewBox="0 0 24 24"
@@ -187,12 +173,13 @@
               </label>
             </div>
           </div>
+          -->
         </div>
 
         <!-- Boutons d'action -->
         <div class="px-6 py-4 bg-gray-50 border-t border-gray-100 flex flex-col gap-2">
           <button (click)="onSearchClick()"
-            class="w-full bg-gradient-to-r from-red-600 to-red-500 text-white py-3 rounded-xl hover:from-red-700 hover:to-red-600 transition-all duration-300 font-semibold flex items-center justify-center shadow-sm">
+                  class="w-full bg-gradient-to-r from-red-600 to-red-500 text-white py-3 rounded-xl hover:from-red-700 hover:to-red-600 transition-all duration-300 font-semibold flex items-center justify-center shadow-sm">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -202,7 +189,7 @@
           </button>
 
           <button (click)="resetSearch()"
-            class="w-full bg-white text-gray-700 py-2.5 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors font-medium flex items-center justify-center">
+                  class="w-full bg-white text-gray-700 py-2.5 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors font-medium flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -556,7 +543,8 @@
 
 
         <!-- Modal de détails -->
-        <app-event-modal  [showModal]="isModalOpen" (closeModalEvent)="isModalOpen = false" [event]="selectedEvent" #eventModal></app-event-modal>
+        <app-event-modal [showModal]="isModalOpen" (closeModalEvent)="isModalOpen = false" [event]="selectedEvent"
+                         #eventModal></app-event-modal>
 
 
       </div>

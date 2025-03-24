@@ -7,6 +7,8 @@ import {EventService} from "../../../services/event.service";
 import {EventModalComponent} from "../event-modal/event-modal.component";
 import {jwtDecode, JwtPayload} from "jwt-decode";
 import {FormsModule} from "@angular/forms";
+import {CategoryService} from "../../../services/category.service";
+import {Category} from "../../../models/category.model";
 
 @Component({
   selector: 'app-event-list',
@@ -38,15 +40,19 @@ export class EventListComponent implements OnInit {
   showModal = false;
   isModalOpen = false;
   selectedEvent: any = null;
+  categories: Category[] = [];
 
 
-  constructor(private eventService: EventService, private router: Router) {
+
+
+  constructor(private eventService: EventService, private router: Router, private categoryService: CategoryService) {
   }
 
 
   ngOnInit() {
     this.setupModalHandlers();
     this.loadEvents(this.currentPage, this.pageSize);
+    this.loadCategories();
   }
 
 
@@ -78,6 +84,34 @@ export class EventListComponent implements OnInit {
     this.searchTerm = '';  // Réinitialiser le terme de recherche
     this.loadEvents(0, this.pageSize);  // Recharger les événements avec les valeurs par défaut
   }
+
+  loadCategories(): void {
+    this.categoryService.getAllCategories().subscribe({
+      next: (data) => {
+        this.categories = data.content; // Récupère uniquement le tableau des catégories
+        console.log('Categories:', this.categories);
+      },
+      error: (error) => {
+        console.error('Error fetching categories:', error);
+      }
+    });
+  }
+
+  selectedCategory: string | null = null;
+
+  filterEventsByCategory(categoryId: string | null): void {
+    this.selectedCategory = categoryId;
+    this.eventService.getEventsByCategory(this.selectedCategory).subscribe({
+      next: (data) => {
+        this.events = data;
+      },
+      error: (error) => {
+        console.error('Error fetching filtered events:', error);
+      }
+    });
+  }
+
+
 
   /*
   onSearchChange(): void {
