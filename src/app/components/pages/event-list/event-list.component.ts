@@ -1,26 +1,22 @@
 import {Component, OnInit} from '@angular/core';
 import {NavbarComponent} from "../../partials/navbar/navbar.component";
-import {Router, RouterLink} from "@angular/router";
-import {DatePipe, NgClass, NgForOf, NgIf} from "@angular/common";
+import {Router} from "@angular/router";
+import {NgForOf} from "@angular/common";
 import {Event} from "../../../models/event.model";
 import {EventService} from "../../../services/event.service";
 import {EventModalComponent} from "../event-modal/event-modal.component";
-import {jwtDecode, JwtPayload} from "jwt-decode";
 import {FormsModule} from "@angular/forms";
 import {CategoryService} from "../../../services/category.service";
 import {Category} from "../../../models/category.model";
+
 
 @Component({
   selector: 'app-event-list',
   standalone: true,
   imports: [
     NavbarComponent,
-    RouterLink,
-    NgClass,
     NgForOf,
-    DatePipe,
     EventModalComponent,
-    NgIf,
     FormsModule
   ],
   templateUrl: './event-list.component.html',
@@ -36,13 +32,13 @@ export class EventListComponent implements OnInit {
   currentPage = 0;
   totalPages = 0;
   pageSize = 9;
-  pageSizeOptions = [5, 10, 15, 20];
   showModal = false;
   isModalOpen = false;
   selectedEvent: any = null;
   categories: Category[] = [];
-
-
+  selectedCategory: string | null = null;
+  startDate: string = '';
+  endDate: string = '';
 
 
   constructor(private eventService: EventService, private router: Router, private categoryService: CategoryService) {
@@ -97,7 +93,11 @@ export class EventListComponent implements OnInit {
     });
   }
 
-  selectedCategory: string | null = null;
+
+  /**
+   * Filtrer les événements par catégorie
+   * @param categoryId
+   */
 
   filterEventsByCategory(categoryId: string | null): void {
     this.selectedCategory = categoryId;
@@ -111,6 +111,28 @@ export class EventListComponent implements OnInit {
     });
   }
 
+
+  /**
+   * Filtrer les événements par date
+   * @param startDate
+   * @param endDate
+   */
+
+  filterEventsByDate(): void {
+    if (this.startDate && this.endDate) {
+      const startDateISO = new Date(this.startDate).toISOString();
+      const endDateISO = new Date(this.endDate).toISOString();
+
+      this.eventService.getEventsByDateRange(startDateISO, endDateISO).subscribe({
+        next: (data) => {
+          this.events = data;
+        },
+        error: (error) => {
+          console.error('Error fetching events:', error);
+        }
+      });
+    }
+  }
 
 
   /*

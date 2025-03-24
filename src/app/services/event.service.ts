@@ -6,6 +6,7 @@ import {Event} from "../models/event.model";
 import {HttpHeaders} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
 import {throwError} from "rxjs";
+import {HttpParams} from "@angular/common/http";
 
 
 @Injectable({
@@ -211,6 +212,14 @@ export class EventService {
       : `${this.apiUrl}/getEventsByCategory`;
 
     return this.http.get<Event[]>(url);
+  }
+
+  getEventsByDateRange(startDate: string, endDate: string): Observable<Event[]> {
+    const params = new HttpParams()
+      .set('startDate', startDate)
+      .set('endDate', endDate);
+
+    return this.http.get<Event[]>(`${this.apiUrl}/getEventsByDate`, { params });
   }
 
 
