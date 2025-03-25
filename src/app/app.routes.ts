@@ -7,7 +7,6 @@ import {MainComponent} from "./components/dashboard/components/main/main.compone
 import {UserComponent} from "./components/dashboard/pages/user/user.component";
 import {CategoryComponent} from "./components/dashboard/pages/category/category.component";
 import {EventsComponent} from "./components/dashboard/pages/events/events.component";
-import {ReservationsComponent} from "./components/dashboard/pages/reservations/reservations.component";
 import {CreateCategoryComponent} from "./components/dashboard/pages/category/create-category/create-category.component";
 import {UpdateCategoryComponent} from "./components/dashboard/pages/category/update-category/update-category.component";
 import {CreateUserComponent} from "./components/dashboard/pages/user/create-user/create-user.component";
@@ -19,8 +18,11 @@ import {UpdateProfileComponent} from "./components/pages/profile/update-profile/
 import {ContactComponent} from "./components/partials/contact/contact.component";
 import {ReservationComponent} from "./components/pages/reservations/reservation.component";
 import {authGuard} from "./guards/auth.guard";
+import {adminGuard} from "./guards/admin.guard";
+import {organizerGuard} from "./guards/organizer.guard";
 
 export const routes: Routes = [
+
   // Public routes
   {path: "", component: HomeComponent, pathMatch: "full"},
   {path: "home", component: HomeComponent},
@@ -28,18 +30,21 @@ export const routes: Routes = [
   {path: "contact", component: ContactComponent},
   {path: "register", component: RegisterComponent},
   {path: "events", component: EventListComponent},
+
   // Admin & SUPER Admin and ORGANIZER  routes
   {path: "dashboard", component: MainComponent, canActivate: [authGuard]},
-  {path: "dashboard/users", component: UserComponent, canActivate: [authGuard]},
-  {path: "dashboard/users/create", component: CreateUserComponent, canActivate: [authGuard]},
-  {path: "dashboard/users/update-status-user/:id", component: UpdateStatusUserComponent, canActivate: [authGuard]},
-  {path: "dashboard/categories", component: CategoryComponent, canActivate: [authGuard]},
-  {path: "dashboard/categories/create", component: CreateCategoryComponent, canActivate: [authGuard]},
-  {path: 'dashboard/categories/update-category/:id', component: UpdateCategoryComponent, canActivate: [authGuard]},
-  {path: "dashboard/events", component: EventsComponent, canActivate: [authGuard]},
-  {path: "dashboard/events/create", component: CreateEventComponent, canActivate: [authGuard]},
-  {path: "dashboard/events/update-event/:id", component: UpdateEventComponent, canActivate: [authGuard]},
-  {path: "dashboard/reservations", component: ReservationsComponent, canActivate: [authGuard]},
+  {path: "dashboard/users", component: UserComponent, canActivate: [authGuard , adminGuard]},
+  {path: "dashboard/users/create", component: CreateUserComponent, canActivate: [authGuard , adminGuard]},
+  {path: "dashboard/users/update-status-user/:id", component: UpdateStatusUserComponent, canActivate: [authGuard , adminGuard]},
+  {path: "dashboard/categories", component: CategoryComponent, canActivate: [authGuard , adminGuard]},
+  {path: "dashboard/categories/create", component: CreateCategoryComponent, canActivate: [authGuard , adminGuard]},
+  {path: 'dashboard/categories/update-category/:id', component: UpdateCategoryComponent, canActivate: [authGuard , adminGuard]},
+
+  // ORGANIZER routes
+  {path: "dashboard/events", component: EventsComponent, canActivate: [authGuard , organizerGuard]},
+  {path: "dashboard/events/create", component: CreateEventComponent, canActivate: [authGuard , organizerGuard]},
+  {path: "dashboard/events/update-event/:id", component: UpdateEventComponent, canActivate: [authGuard , organizerGuard]},
+
   // User routes
   {path: "profile", component: ProfileComponent, canActivate: [authGuard]},
   {path: "profile/:id", component: UpdateProfileComponent, canActivate: [authGuard]},
